@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:mbt_halal/scr/core/utils/constants/colors.dart';
-import 'package:mbt_halal/scr/core/utils/constants/sizes.dart';
-import 'package:mbt_halal/scr/core/utils/device/device_utility.dart';
-import 'package:mbt_halal/scr/core/utils/helpers/helper_functions.dart';
+import 'package:mbt_halal/scr/core/app_export.dart';
 
 class BSearchContainer extends StatelessWidget {
   const BSearchContainer(
@@ -29,20 +25,18 @@ class BSearchContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final darkMode = BHelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: onTap,
       child: Padding(
         padding: padding,
         child: Container(
-          width: BDeviceUtils.getScreenWidth(context),
+          width: BDeviceUtils.getScreenWidth(context) * 0.9,
           padding: const EdgeInsets.all(BSizes.md),
           decoration: BoxDecoration(
-            color: colors ?? (darkMode ? BColors.dark : BColors.light),
+            color: colors ?? (BColors.light),
             border: showBorder
                 ? Border.all(
-                    color: borderColors ??
-                        (darkMode ? BColors.dark : BColors.light),
+                    color: borderColors ?? (BColors.light),
                   )
                 : null,
             borderRadius: BorderRadius.circular(
@@ -50,15 +44,20 @@ class BSearchContainer extends StatelessWidget {
             ),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(icon, color: iconColor),
-              const SizedBox(
-                width: BSizes.spaceBtwItems,
-              ),
               Text(
                 text,
                 style: Theme.of(context).textTheme.bodySmall,
-              )
+              ),
+              Icon(
+                icon,
+                color: iconColor,
+                size: 24,
+              ),
+              // const SizedBox(
+              //   width: BSizes.spaceBtwItems,
+              // ),
             ],
           ),
         ),

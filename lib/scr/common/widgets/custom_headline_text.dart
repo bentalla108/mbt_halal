@@ -27,7 +27,7 @@ class SectionHeading extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .headlineSmall!
-              .apply(color: textColor),
+              .apply(color: textColor, fontSizeFactor: 0.8),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),

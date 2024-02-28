@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mbt_halal/scr/core/utils/constants/colors.dart';
 import 'package:mbt_halal/scr/features/shop/home/screen/home_sceen.dart';
+import 'package:mbt_halal/scr/features/shop/store/Store_screen/Store_screen.dart';
+
+import 'features/authentication/authentication.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -67,9 +70,9 @@ class NavigationController extends GetxController {
 
   final screens = [
     const HomeScreen(),
+    const StoreScreen(),
     const HomeScreen(),
-    const HomeScreen(),
-    const HomeScreen(),
+    const AuthenticationScreen(),
     // const LoginScreen(),
     // const LoginScreen(),
     // const LoginScreen(),

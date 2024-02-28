@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mbt_halal/scr/core/app_export.dart';
+import 'package:mbt_halal/scr/core/utils/helpers/size_utils.dart';
 
 import '../../../../models/mock_model/product.dart';
 import '../widgets/home_head_section.dart';
@@ -28,40 +29,66 @@ class HomeScreen extends StatelessWidget {
     return SingleChildScrollView(
       // scrollDirection: Axis.horizontal,
 
-      child: Column(
-        children: [
-          //! Home Head Section
-          const HomeHeadSection(),
+      child: Padding(
+        padding: EdgeInsets.all(BSizes.md),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            //! Home Head Section
+            HomeHeadSection(),
 
-          PubSection(img: img, details: details),
+            BannerSection(img: img, details: details),
 
-          Padding(
-            padding: EdgeInsets.all(BSizes.md),
-            child: Column(
+            Column(
               mainAxisSize: MainAxisSize.min,
-              children: [
+              children: const [
                 SectionHeading(
                   title: 'Best hightlight',
                 ),
                 SizedBox(
                   height: 10,
                 ),
-
-                
-
-                CustomScrollView()
-                ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: 4,
-                  itemBuilder: (context, index) => SingleProductWidget(
-                    product: MockProductModel.random(),
-                  ),
+                ProductSCrool(),
+                SizedBox(
+                  height: 30,
                 ),
+                SectionHeading(
+                  title: 'See our Latest products',
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ProductSCrool(),
+                SizedBox(
+                  height: 30,
+                )
               ],
-            ),
-          )
-        ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ProductSCrool extends StatelessWidget {
+  const ProductSCrool({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 305.v,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: 6,
+        separatorBuilder: (context, index) => SizedBox(
+          width: BSizes.md,
+        ),
+        itemBuilder: (context, index) => SingleProductWidget(
+          product: MockProductModel.random(),
+        ),
       ),
     );
   }

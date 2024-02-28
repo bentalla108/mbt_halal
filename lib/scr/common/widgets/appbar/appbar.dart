@@ -11,7 +11,7 @@ class BAppbar extends StatelessWidget implements PreferredSizeWidget {
       this.leadingIcon,
       this.actions,
       this.leadingOnPressed,
-      this.centerTitle});
+      this.centerTitle = false});
 
   final Widget? title;
   final bool showBackArrow;
@@ -24,9 +24,10 @@ class BAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-          left: BSizes.md, right: BSizes.md, top: BSizes.xl),
+      padding: const EdgeInsets.only(top: BSizes.xl),
       child: AppBar(
+        titleSpacing: 0,
+        surfaceTintColor: Colors.transparent,
         centerTitle: centerTitle,
         backgroundColor: Colors.transparent,
         title: title,
@@ -34,6 +35,11 @@ class BAppbar extends StatelessWidget implements PreferredSizeWidget {
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
+                // splashColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                // focusColor: Colors.transparent,
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.all(0),
                 onPressed: () => Get.back(),
                 icon: const Icon(
                   Iconsax.arrow_left,
@@ -42,6 +48,8 @@ class BAppbar extends StatelessWidget implements PreferredSizeWidget {
               )
             : leadingIcon != null
                 ? IconButton(
+                    alignment: Alignment.centerLeft,
+                    padding: const EdgeInsets.all(0),
                     onPressed: () => leadingOnPressed,
                     icon: Icon(leadingIcon),
                   )

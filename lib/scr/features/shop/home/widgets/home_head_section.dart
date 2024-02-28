@@ -9,6 +9,7 @@ class HomeHeadSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BAppbar(
+      showBackArrow: false,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -29,12 +30,9 @@ class HomeHeadSection extends StatelessWidget {
         ],
       ),
       actions: const [
-        Padding(
-          padding: EdgeInsets.only(right: 8),
-          child: Icon(
-            Icons.search_off_outlined,
-            size: 32,
-          ),
+        Icon(
+          Iconsax.search_normal,
+          size: 24,
         )
       ],
     );

@@ -1,6 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/common/widgets/custom_text.dart';
 import 'package:mbt_halal/scr/core/app_export.dart';
+import 'package:mbt_halal/scr/core/utils/helpers/size_utils.dart';
 import 'package:mbt_halal/scr/models/product.dart';
 
 import '../../../../common/widgets/icons/circular_icon.dart';
@@ -12,67 +14,84 @@ class SingleProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
+      // height: 300.v,
       decoration: BoxDecoration(
         color: Colors.grey.withOpacity(0.2),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
-                ),
-                child: CustomImageView(
-                  imagePath: product.image,
-                  width: double.infinity,
-                )),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 24.h,
+              vertical: 6.v,
+            ),
+            // height: 110.v,
+            // width: 95.h,
+            child: CustomImageView(
+              height: 200.v,
+              width: 150.h,
+              fit: BoxFit.contain,
+
+              imagePath: product.image,
+              // alignment: Alignment.centerLeft,
+            ),
           ),
           Container(
-            width: double.infinity,
+            height: 80.v,
+            width: 200.h,
             decoration: BoxDecoration(color: BColors.white, boxShadow: [
               BoxShadow(
                   color: Colors.grey.withOpacity(.5),
                   offset: const Offset(3, 10),
                   blurRadius: 10)
             ]),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+            child: Stack(
+              alignment: Alignment.center,
               children: [
-                CustomText(
-                  text: product.name,
-                  size: 18,
-                  weight: FontWeight.bold,
-                ),
-                CustomText(
-                  text: product.brand,
-                  color: Colors.grey,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                CustomText(
-                  text: "\$${product.price.toStringAsFixed(3)}",
-                  size: 22,
-                  weight: FontWeight.bold,
-                  textAlign: TextAlign.center, // Centrer le texte
-                ),
                 Align(
-                  alignment: Alignment.bottomRight,
-                  child: Transform.translate(
-                    offset: const Offset(10, 10),
-                    child: BCircularIcon(
-                      icon: Icons.add,
-                      onPressed: () {
-                        // cartController.addProductToCart(product);
-                      },
+                  alignment: Alignment.center,
+                  child: Container(
+                    margin: EdgeInsets.only(right: 4.h),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 11.h,
+                      vertical: 5.v,
+                    ),
+                    // decoration: AppDecoration.outlinePrimaryContainer,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 3.v),
+                        Text(product.brand,
+                            style: Theme.of(context).textTheme.titleSmall),
+                        SizedBox(height: 8.v),
+                        Text("${product.price.toStringAsFixed(3)} \$",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(
+                                  fontWeight: FontWeight.bold,
+                                )),
+                      ],
                     ),
                   ),
                 ),
+                Align(
+                    alignment: Alignment.bottomRight,
+                    child: Transform.translate(
+                      offset: Offset(8, 8),
+                      child: BCircularIcon(
+                          width: 32.adaptSize,
+                          height: 32.adaptSize,
+                          size: 24.adaptSize,
+                          color: BColors.white,
+                          icon: Icons.add,
+                          onPressed: () {
+                            // cartController.addProductToCart(productd, },
+                          }),
+                    )),
               ],
             ),
           )
@@ -81,3 +100,44 @@ class SingleProductWidget extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+//  Column(
+//                 crossAxisAlignment: CrossAxisAlignment.center,
+//                 children: [
+//                   CustomText(
+//                     text: product.name,
+//                     size: 10,
+//                     weight: FontWeight.bold,
+//                   ),
+//                   CustomText(
+//                     text: product.brand,
+//                     color: Colors.grey,
+//                     size: 10,
+//                   ),
+//                   const SizedBox(
+//                     height: 5,
+//                   ),
+//                   CustomText(
+//                     text: "\$${product.price.toStringAsFixed(3)}",
+//                     size: 10,
+//                     weight: FontWeight.bold,
+//                     textAlign: TextAlign.center, // Centrer le texte
+//                   ),
+//                   Align(
+//                     alignment: Alignment.bottomRight,
+//                     child: Transform.translate(
+//                       offset: const Offset(10, 10),
+//                       child: BCircularIcon(
+//                         icon: Icons.add,
+//                         onPressed: () {
+//                           // cartController.addProductToCart(product);
+//                         },
+//                       ),
+//                     ),
+//                   ),
+//                 ],
+//               ),
