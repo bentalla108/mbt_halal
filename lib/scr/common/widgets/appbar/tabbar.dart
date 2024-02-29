@@ -12,20 +12,17 @@ class BTabBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return TabBar(
-      labelPadding: const EdgeInsets.symmetric(
-          horizontal:
-              10), // Ajouter de l'espacement autour du texte de l'onglet
-      tabAlignment: TabAlignment.start,
-      indicatorColor: Colors.transparent,
+      dividerColor: Colors.transparent,
+      overlayColor: const MaterialStatePropertyAll(Colors.transparent),
+      labelPadding: const EdgeInsets.symmetric(horizontal: 5),
+      tabAlignment: TabAlignment.center,
       indicator: BoxDecoration(
-        backgroundBlendMode: BlendMode.dstOut,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(55),
         color: Colors.black,
       ),
       isScrollable: true,
       unselectedLabelColor: BColors.secondary,
       labelColor: BColors.white,
-
       tabs: tabs,
     );
   }

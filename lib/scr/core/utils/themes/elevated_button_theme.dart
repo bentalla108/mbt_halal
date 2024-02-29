@@ -12,7 +12,7 @@ class BElevatedButtonTheme {
       disabledBackgroundColor: Colors.grey,
       disabledForegroundColor: Colors.grey,
       side: const BorderSide(
-        color: Colors.blue,
+        color: Colors.transparent,
       ),
       padding: const EdgeInsets.symmetric(vertical: 18),
       textStyle: const TextStyle(

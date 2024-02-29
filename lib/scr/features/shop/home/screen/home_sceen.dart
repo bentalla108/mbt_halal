@@ -2,10 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mbt_halal/scr/core/app_export.dart';
-import 'package:mbt_halal/scr/core/utils/helpers/size_utils.dart';
-
-import '../../../../models/mock_model/product.dart';
-import '../widgets/home_head_section.dart';
+import 'package:mbt_halal/scr/features/shop/home/widgets/product_scrool.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,68 +23,72 @@ class HomeScreen extends StatelessWidget {
 
     String details =
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt';
-    return SingleChildScrollView(
-      // scrollDirection: Axis.horizontal,
-
-      child: Padding(
-        padding: EdgeInsets.all(BSizes.md),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
+    return Scaffold(
+      appBar: BAppbar(
+        appBarSpacing: false,
+        showBackArrow: false,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //! Home Head Section
-            HomeHeadSection(),
-
-            BannerSection(img: img, details: details),
-
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: const [
-                SectionHeading(
-                  title: 'Best hightlight',
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                ProductSCrool(),
-                SizedBox(
-                  height: 30,
-                ),
-                SectionHeading(
-                  title: 'See our Latest products',
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                ProductSCrool(),
-                SizedBox(
-                  height: 30,
-                )
-              ],
-            )
+            Text(
+              BTextsConstant.welcomBack,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .apply(color: BColors.textPrimary),
+            ),
+            Text(
+              BTextsConstant.name,
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineMedium!
+                  .apply(color: BColors.textPrimary),
+            ),
           ],
         ),
+        actions: const [
+          Icon(
+            Iconsax.search_normal,
+            size: 24,
+          )
+        ],
       ),
-    );
-  }
-}
+      // scrollDirection: Axis.horizontal,
 
-class ProductSCrool extends StatelessWidget {
-  const ProductSCrool({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 305.v,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: 6,
-        separatorBuilder: (context, index) => SizedBox(
-          width: BSizes.md,
-        ),
-        itemBuilder: (context, index) => SingleProductWidget(
-          product: MockProductModel.random(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(BSizes.md),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              BannerSection(img: img, details: details),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  SectionHeading(
+                    title: 'Best hightlight',
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  ProductSCrool(),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  SectionHeading(
+                    title: 'See our Latest products',
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  ProductSCrool(),
+                  SizedBox(
+                    height: 30,
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

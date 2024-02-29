@@ -11,21 +11,26 @@ class BAppbar extends StatelessWidget implements PreferredSizeWidget {
       this.leadingIcon,
       this.actions,
       this.leadingOnPressed,
-      this.centerTitle = false});
+      this.centerTitle = false,
+      this.bottom,
+      this.appBarSpacing = false});
 
   final Widget? title;
   final bool showBackArrow;
   final bool? centerTitle;
   final IconData? leadingIcon;
   final List<Widget>? actions;
+  final bool appBarSpacing;
 
   final VoidCallback? leadingOnPressed;
-
+  final PreferredSizeWidget? bottom;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: BSizes.xl),
+      padding: const EdgeInsets.only(
+          top: BSizes.defaultSpace, left: BSizes.md, right: BSizes.md),
       child: AppBar(
+        bottom: bottom,
         titleSpacing: 0,
         surfaceTintColor: Colors.transparent,
         centerTitle: centerTitle,
@@ -59,5 +64,6 @@ class BAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(BDeviceUtils.getAppBarHeight());
+  Size get preferredSize => Size.fromHeight(
+      BDeviceUtils.getAppBarHeight() * (appBarSpacing ? 2.5 : 1.5));
 }

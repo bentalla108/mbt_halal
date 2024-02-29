@@ -30,8 +30,8 @@ class SingleProductWidget extends StatelessWidget {
             // height: 110.v,
             // width: 95.h,
             child: CustomImageView(
-              height: 200.v,
-              width: 150.h,
+              height: 190.v,
+              width: 140.h,
               fit: BoxFit.contain,
 
               imagePath: product.image,
@@ -39,8 +39,8 @@ class SingleProductWidget extends StatelessWidget {
             ),
           ),
           Container(
-            height: 80.v,
-            width: 200.h,
+            height: 85.v,
+            width: 190.h,
             decoration: BoxDecoration(color: BColors.white, boxShadow: [
               BoxShadow(
                   color: Colors.grey.withOpacity(.5),
@@ -64,7 +64,7 @@ class SingleProductWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(height: 3.v),
-                        Text(product.brand,
+                        Text(product.name,
                             style: Theme.of(context).textTheme.titleSmall),
                         SizedBox(height: 8.v),
                         Text("${product.price.toStringAsFixed(3)} \$",

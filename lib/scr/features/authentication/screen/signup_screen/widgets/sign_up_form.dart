@@ -89,7 +89,7 @@ class BSignUpForm extends StatelessWidget {
           /// Create account buttons
 
           const SizedBox(
-            height: BSizes.spaceBtwItems,
+            height: BSizes.spaceBtwSections,
           ),
 
           SizedBox(
