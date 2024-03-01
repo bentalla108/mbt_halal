@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mbt_halal/scr/core/utils/constants/colors.dart';
-import 'package:mbt_halal/scr/features/shop/home/screen/home_sceen.dart';
-import 'package:mbt_halal/scr/features/shop/store/screen/Store_screen.dart';
+import 'package:mbt_halal/scr/screens/home/screen/home_sceen.dart';
+import 'package:mbt_halal/scr/screens/store/screen/Store_screen.dart';
 
-import 'features/authentication/authentication.dart';
-import 'features/shop/cart/screen/cart_screen.dart';
+import 'screens/authentication/authentication.dart';
+import 'screens/cart/screen/cart_screen.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
+
+  static String routeName = 'navigationMenu';
 
   @override
   Widget build(BuildContext context) {

@@ -13,4 +13,7 @@ class ImageConstant {
   // Banner
   static String banner1 = '$imagePath/img/banner_1.png';
   static String banner2 = '$imagePath/img/banner_2.png';
+
+  // User
+  static String user = '$imagePath/img/user.png';
 }

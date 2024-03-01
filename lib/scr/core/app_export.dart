@@ -10,7 +10,6 @@ export 'package:mbt_halal/scr/common/widgets/appbar/appbar.dart';
 export 'package:mbt_halal/scr/core/utils/device/device_utility.dart';
 
 export 'package:mbt_halal/scr/common/widgets/custom_headline_text.dart';
-export 'package:mbt_halal/scr/features/shop/home/widgets/banner_section.dart';
-export 'package:mbt_halal/scr/features/shop/home/widgets/single_product.dart';
+export 'package:mbt_halal/scr/screens/home/widgets/banner_section.dart';
 export 'package:mbt_halal/scr/core/utils/helpers/size_utils.dart';
 export 'package:mbt_halal/scr/common/widgets/custom_field_text.dart';

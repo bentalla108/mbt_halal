@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
 
 class BGridLayout extends StatelessWidget {
   const BGridLayout({
@@ -21,10 +20,7 @@ class BGridLayout extends StatelessWidget {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            mainAxisSpacing: BSizes.gridViewSpacing,
-            crossAxisSpacing: BSizes.gridViewSpacing,
-            crossAxisCount: 2,
-            mainAxisExtent: mainAxisExtent),
+            crossAxisCount: 2, mainAxisExtent: mainAxisExtent),
         itemBuilder: itemBuilder);
   }
 }

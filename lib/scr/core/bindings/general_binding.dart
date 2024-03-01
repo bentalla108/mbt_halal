@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:mbt_halal/scr/features/authentication/controllers/auht_controller.dart';
+import 'package:mbt_halal/scr/screens/authentication/controllers/auht_controller.dart';
 
 class GeneralBindings extends Bindings {
   @override
