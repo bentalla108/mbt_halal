@@ -6,6 +6,7 @@ import 'package:mbt_halal/scr/common/widgets/container/search_container.dart';
 import 'package:mbt_halal/scr/core/app_export.dart';
 
 import '../widgets/all_products.dart';
+import '../widgets/filter.dart';
 import '../widgets/tabbar_widget.dart';
 
 class StoreScreen extends StatelessWidget {
@@ -45,8 +46,8 @@ class StoreScreen extends StatelessWidget {
               padding: EdgeInsets.all(BSizes.md),
               child: TabBarView(children: [
                 AllProductsScreen(),
-                AllProductsScreen(),
-                AllProductsScreen(),
+                FilterView(),
+                FilterView(),
                 AllProductsScreen(),
               ]),
             )));

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mbt_halal/scr/core/utils/constants/colors.dart';
+import 'package:mbt_halal/scr/screens/cart/screen/my_cart_screen.dart';
 import 'package:mbt_halal/scr/screens/home/screen/home_sceen.dart';
 import 'package:mbt_halal/scr/screens/store/screen/Store_screen.dart';
 
@@ -74,7 +75,7 @@ class NavigationController extends GetxController {
   final screens = [
     const HomeScreen(),
     const StoreScreen(),
-    const CartScreen(),
+    const MyCartView(),
     const AuthenticationScreen(),
   ];
 }
