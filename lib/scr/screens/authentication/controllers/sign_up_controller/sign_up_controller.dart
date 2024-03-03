@@ -1,13 +1,83 @@
-// import 'package:b_store/data/modal/user_modal/user_modal.dart';
-// import 'package:b_store/data/repository/authentication_repository/authentication_repository.dart';
-// import 'package:b_store/data/repository/user_repository/user_repository.dart';
-// import 'package:b_store/features/authentication/screen/signup_screen/verify_email_screen.dart';
-// import 'package:b_store/utils/constants/image_strings.dart';
-// import 'package:b_store/utils/helpers/network_manager.dart';
-// import 'package:b_store/utils/popups/fullscreen_loader.dart';
-// import 'package:b_store/utils/popups/loaders.dart';
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mbt_halal/scr/core/utils/helpers/globs.dart';
+
+class SignUpController extends GetxController {
+  static SignUpController get instance => Get.find();
+
+  final RxBool isHidePassword = true.obs;
+  final RxBool privacyPolicy = false.obs;
+
+  final emailController = TextEditingController().obs;
+
+  final lastNameController = TextEditingController().obs;
+
+  final usernameController = TextEditingController().obs;
+
+  final firstNameController = TextEditingController().obs;
+  final passwordController = TextEditingController().obs;
+
+  final phoneNumberController = TextEditingController().obs;
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+
+    if (kDebugMode) {
+      print("SignUpViewModel Init ");
+    }
+    usernameController.value.text = "User1";
+    emailController.value.text = "user1@gmail.com";
+    passwordController.value.text = "123456";
+  }
+
+  //! Show Hide password
+  void showPassword() {
+    isHidePassword.value = !isHidePassword.value;
+  }
+
+  //! Check Email and Password & Call Api
+  void apiCallSignUp() {
+    if (!GetUtils.isEmail(emailController.value.text)) {
+      Get.snackbar(Globs.appName, "Pleaser enter valid email address");
+      return;
+    }
+    if (passwordController.value.text.length < 6) {
+      Get.snackbar(
+          Globs.appName, "Pleaser enter valid password min 6 character");
+      return;
+    }
+    if (usernameController.value.text.isEmpty) {
+      Get.snackbar(Globs.appName, "Pleaser enter username");
+      return;
+    }
+    if (lastNameController.value.text.isEmpty) {
+      Get.snackbar(Globs.appName, "Pleaser enter username");
+      return;
+    }
+    if (!privacyPolicy.value) {
+      Get.snackbar(
+          Globs.appName, "Pleaser check privacy policy and terms conditions");
+      return;
+    }
+    //: Loading
+    // Globs.showHUD();
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 // class SignUpController {
 //   static SignUpController get instance => Get.find();

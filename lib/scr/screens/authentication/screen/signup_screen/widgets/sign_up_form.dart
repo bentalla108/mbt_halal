@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mbt_halal/scr/core/app_export.dart';
+import 'package:mbt_halal/scr/screens/authentication/controllers/sign_up_controller/sign_up_controller.dart';
 
 import 'terms_and_conditions.dart';
 
@@ -10,32 +12,30 @@ class BSignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final controller = Get.put(SignUpController());
-
-    const bool isTrue = 1 == 1;
+    final SignUpController controller = Get.put(SignUpController());
 
     return Form(
       // key: controller.signUpFormKey,
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
               Expanded(
                   child: CustomTextField(
                 // validator: (value) =>
                 //     BValidator.validateEmptyText('First Name', value),
-                // controller: controller.firstName,
+                controller: controller.firstNameController.value,
                 labelText: BTextsConstant.firstName,
                 prefixIconName: Iconsax.user,
               )),
-              SizedBox(
+              const SizedBox(
                 width: BSizes.spaceBtwItems,
               ),
               Expanded(
                 child: CustomTextField(
                   // validator: (value) =>
                   //     BValidator.validateEmptyText('Last Name', value),
-                  // controller: controller.lastName,
+                  controller: controller.lastNameController.value,
                   labelText: BTextsConstant.lastName,
                   prefixIconName: Iconsax.user,
                 ),
@@ -45,19 +45,19 @@ class BSignUpForm extends StatelessWidget {
           const SizedBox(
             height: BSizes.spaceBtwItems,
           ),
-          const CustomTextField(
+          CustomTextField(
             // validator: (value) =>
             //     BValidator.validateEmptyText('Username', value),
-            // controller: controller.username,
+            controller: controller.usernameController.value,
             labelText: BTextsConstant.username,
             prefixIconName: Iconsax.user,
           ),
           const SizedBox(
             height: BSizes.spaceBtwItems,
           ),
-          const CustomTextField(
+          CustomTextField(
             // validator: (value) => BValidator.validateEmail(value),
-            // controller: controller.email,
+            controller: controller.emailController.value,
             labelText: BTextsConstant.email,
             prefixIconName: Iconsax.direct,
           ),
@@ -65,18 +65,18 @@ class BSignUpForm extends StatelessWidget {
             height: BSizes.spaceBtwItems,
           ),
 
-          CustomTextField(
+          Obx(() => CustomTextField(
               // validator: (value) => BValidator.validatePassword(value),
-              // controller: controller.password,
-              // obscureText: controller.hidePassword.value,
+              controller: controller.passwordController.value,
+              obscureText: controller.isHidePassword.value,
               labelText: BTextsConstant.password,
               prefixIconName: Iconsax.password_check,
               suffixIconName: IconButton(
-                onPressed: () =>
-                    {}, // controller.hidePassword.value =!controller.hidePassword.value,
-                icon: const Icon(// controller.hidePassword.value
-                    isTrue ? Iconsax.eye : Iconsax.eye_slash),
-              )),
+                onPressed: controller.showPassword,
+                icon: Icon(controller.isHidePassword.value
+                    ? Iconsax.eye
+                    : Iconsax.eye_slash),
+              ))),
 
           const SizedBox(
             height: BSizes.spaceBtwItems,
@@ -97,7 +97,7 @@ class BSignUpForm extends StatelessWidget {
             child: ElevatedButton(
               style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(BColors.secondary)),
-              onPressed: () => {}, //controller.signUp(),
+              onPressed: controller.apiCallSignUp,
               child: const Text('Create Account'),
             ),
           ),

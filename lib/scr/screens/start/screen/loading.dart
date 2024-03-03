@@ -6,7 +6,7 @@ import 'package:mbt_halal/scr/core/app_export.dart';
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});
 
-  static String routeName = "initScreen";
+  static String routeName = "/initScreen";
 
   @override
   State<LoadingScreen> createState() => _LoadingScreenState();

@@ -13,7 +13,7 @@ class ProductSCrool extends StatelessWidget {
     return SizedBox(
       height: 280.v,
       child: ListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        // padding: const EdgeInsets.symmetric(horizontal: 15),
         scrollDirection: Axis.horizontal,
         itemCount: 6,
         itemBuilder: (context, index) => ProductCell(

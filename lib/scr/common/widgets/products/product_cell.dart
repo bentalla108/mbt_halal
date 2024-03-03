@@ -26,10 +26,11 @@ class ProductCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      hoverColor: Colors.transparent,
       onTap: () => Get.to(() => ProductDetails(product: product)),
       child: Container(
         width: weight,
-        margin: EdgeInsets.symmetric(horizontal: margin, vertical: margin),
+        margin: EdgeInsets.only(top: margin, right: 8, bottom: margin),
         padding: const EdgeInsets.only(top: 15),
         decoration: BoxDecoration(
           color: Colors.grey.withOpacity(0.3),

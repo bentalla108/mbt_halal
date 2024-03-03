@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mbt_halal/scr/core/app_export.dart';
+import 'package:mbt_halal/scr/screens/authentication/controllers/login_controller/login_controller.dart';
 
-import '../../../controllers/auht_controller.dart';
-import '../../profile/profile_screen.dart';
+import '../../../controllers/auth_controller.dart';
 
 class BLoginForm extends StatelessWidget {
   const BLoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // final controller = Get.put(OnBoardingController());
-    final AuthNavigationController authNavigationController = Get.find();
+    final LoginController loginController = Get.put(LoginController());
+    final AuthNavigationController authNavigationController =
+        Get.put(AuthNavigationController());
 
     return Form(
       child: Padding(
@@ -20,6 +21,7 @@ class BLoginForm extends StatelessWidget {
           children: [
             /// Email
             TextFormField(
+              controller: loginController.emailController.value,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.direct_right), labelText: 'Email'),
             ),
@@ -28,11 +30,20 @@ class BLoginForm extends StatelessWidget {
             ),
 
             /// Password
-            TextFormField(
-              decoration: const InputDecoration(
-                  suffixIcon: Icon(Iconsax.eye_slash),
-                  prefixIcon: Icon(Iconsax.password_check),
-                  labelText: 'Password'),
+            Obx(
+              () => TextFormField(
+                controller: loginController.passwordController.value,
+                obscureText: loginController.isHidePassword.value,
+                decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      icon: Icon(loginController.isHidePassword.value
+                          ? Icons.visibility_off
+                          : Icons.visibility),
+                      onPressed: loginController.showPassword,
+                    ),
+                    prefixIcon: const Icon(Iconsax.password_check),
+                    labelText: 'Password'),
+              ),
             ),
 
             const SizedBox(
@@ -66,7 +77,9 @@ class BLoginForm extends StatelessWidget {
                 style: const ButtonStyle(
                     backgroundColor:
                         MaterialStatePropertyAll(BColors.secondary)),
-                onPressed: () => Get.to(() => const ProfileScreen()),
+                // onPressed: () => Get.to(() => const ProfileScreen()
+                // ),
+                onPressed: authNavigationController.isLogged,
                 child: const Text('Sing In'),
               ),
             ),
@@ -78,7 +91,7 @@ class BLoginForm extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('No account? '),
+                const Text('No account?'),
                 TextButton(
                   onPressed: () {
                     authNavigationController.goToSignUp();

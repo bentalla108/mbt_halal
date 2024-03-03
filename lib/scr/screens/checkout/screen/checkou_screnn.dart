@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mbt_halal/scr/core/app_export.dart';
 import 'package:mbt_halal/scr/screens/checkout/widgets/payment_methode.dart';
+import 'package:mbt_halal/scr/screens/checkout/widgets/shipping_method.dart';
 
-import '../widgets/adress.dart';
-import '../widgets/checkou_form.dart';
+import '../widgets/adress_infos.dart';
+import '../widgets/personal_info_form.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             state: currentStep > 0 ? StepState.complete : StepState.indexed,
             isActive: currentStep >= 0,
             title: const Text("Personal Infomation"),
-            content: const CheckoutForm()),
+            content: const SocialInfo()),
         Step(
             state: currentStep > 1 ? StepState.complete : StepState.indexed,
             isActive: currentStep >= 1,
@@ -30,17 +31,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           state: currentStep > 2 ? StepState.complete : StepState.indexed,
           isActive: currentStep >= 2,
           title: const Text("Shipping method"),
-          content: Container(
-            color: Colors.blue,
-            height: 100,
-            width: 100,
-          ),
+          content: const ShippingMethod(),
         ),
         Step(
             state: currentStep > 3 ? StepState.complete : StepState.indexed,
             isActive: currentStep >= 3,
             title: const Text("Payment"),
-            content: PaymentMethod()),
+            content: const PaymentMethod()),
       ];
 
   @override
@@ -54,6 +51,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       body: SizedBox(
         height: BDeviceUtils.getScreenHeight(),
         child: Stepper(
+          connectorColor: const MaterialStatePropertyAll(BColors.primary),
           onStepTapped: (step) => setState(() {
             currentStep = step;
           }),

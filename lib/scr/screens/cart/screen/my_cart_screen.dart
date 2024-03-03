@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mbt_halal/scr/core/app_export.dart';
+import 'package:mbt_halal/scr/screens/checkout/widgets/adress_infos.dart';
 
 import '../../../core/utils/constants/colors.dart';
 
+import '../../checkout/screen/checkou_screnn.dart';
 import '../widgets/cart_item_row.dart';
 import '../widgets/checkout_view.dart';
 
@@ -37,9 +39,9 @@ class _MyCartViewState extends State<MyCartView> {
         alignment: Alignment.bottomCenter,
         children: [
           ListView.separated(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(BSizes.defaultSpace),
               // itemCount: cartVM.listArr.length,
-              itemCount: 5,
+              itemCount: 4,
               separatorBuilder: (context, index) => const Divider(
                     color: Colors.black26,
                     height: 1,
@@ -73,13 +75,18 @@ class _MyCartViewState extends State<MyCartView> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
-              // mainAxisAlignment: cartVM.listArr.isNotEmpty ? MainAxisAlignment.end :  MainAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: true == true
+                  ? MainAxisAlignment.end
+                  : MainAxisAlignment.center,
+              //  mainAxisAlignment: cartVM.listArr.isNotEmpty ? MainAxisAlignment.end :  MainAxisAlignment.center,
               children: [
                 // cartVM.listArr.isNotEmpty
                 true == true
                     ? MaterialButton(
                         onPressed: () {
+                          // Get.to(() => AddressForm());
+                          Get.to(() => CheckoutScreen());
+
                           // showCheckout();
                         },
                         height: 60,

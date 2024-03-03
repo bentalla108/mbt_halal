@@ -7,7 +7,6 @@ import 'package:mbt_halal/scr/screens/home/screen/home_sceen.dart';
 import 'package:mbt_halal/scr/screens/store/screen/Store_screen.dart';
 
 import 'screens/authentication/authentication.dart';
-import 'screens/cart/screen/cart_screen.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});

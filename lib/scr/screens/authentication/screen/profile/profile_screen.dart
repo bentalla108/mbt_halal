@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mbt_halal/scr/common/widgets/appbar/appbar.dart';
 
+import '../../controllers/auth_controller.dart';
 import 'widgets/profile_menu.dart';
 import 'widgets/profile_pic.dart';
 
@@ -10,6 +12,8 @@ class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    final AuthNavigationController authNavigationController = Get.find();
+
     return Scaffold(
       appBar: const BAppbar(
         title: Text("Profile"),
@@ -51,7 +55,7 @@ class ProfileScreen extends StatelessWidget {
             ProfileMenu(
               text: "Log Out",
               icon: Icons.logout,
-              press: () {},
+              press: authNavigationController.logOut,
             ),
           ],
         ),
