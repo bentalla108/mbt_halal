@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
 import 'package:mtb_halal/scr/screens/checkout/widgets/adress_infos.dart';
@@ -29,7 +30,7 @@ class _MyCartViewState extends State<MyCartView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const BAppbar(
+      appBar: AppBar(
         centerTitle: true,
         title: Text(
           "My Cart",
@@ -48,28 +49,33 @@ class _MyCartViewState extends State<MyCartView> {
                   ),
               itemBuilder: (context, index) {
                 // var cObj = cartVM.listArr[index];
-                return CartItemRow(
-                  didDelete: () {},
-                  didQtyAdd: () {},
-                  didQtySub: () {},
+                return Padding(
+                  padding: index == 3
+                      ? EdgeInsets.only(bottom: 50.v)
+                      : const EdgeInsets.all(0),
+                  child: CartItemRow(
+                    didDelete: () {},
+                    didQtyAdd: () {},
+                    didQtySub: () {},
 
-                  // cObj: cObj,
-                  // didQtyAdd: () {
-                  //   cartVM.serviceCallUpdateCart(cObj, (cObj.qty ?? 0) + 1
-                  // );
-                  // },
-                  // didQtySub: () {
-                  //   var qty = cObj.qty ?? 0;
-                  //   qty -= 1;
+                    // cObj: cObj,
+                    // didQtyAdd: () {
+                    //   cartVM.serviceCallUpdateCart(cObj, (cObj.qty ?? 0) + 1
+                    // );
+                    // },
+                    // didQtySub: () {
+                    //   var qty = cObj.qty ?? 0;
+                    //   qty -= 1;
 
-                  //   if (qty < 0) {
-                  //     qty = 0;
-                  //   }
-                  //   cartVM.serviceCallUpdateCart(cObj, qty);
-                  // },
-                  // didDelete: () {
-                  //   cartVM.serviceCallRemoveCart(cObj);
-                  // },
+                    //   if (qty < 0) {
+                    //     qty = 0;
+                    //   }
+                    //   cartVM.serviceCallUpdateCart(cObj, qty);
+                    // },
+                    // didDelete: () {
+                    //   cartVM.serviceCallRemoveCart(cObj);
+                    // },
+                  ),
                 );
               }),
           Padding(
@@ -85,7 +91,7 @@ class _MyCartViewState extends State<MyCartView> {
                     ? MaterialButton(
                         onPressed: () {
                           // Get.to(() => AddressForm());
-                          Get.to(() => CheckoutScreen());
+                          Get.to(() => const CheckoutScreen());
 
                           // showCheckout();
                         },
@@ -94,7 +100,7 @@ class _MyCartViewState extends State<MyCartView> {
                             borderRadius: BorderRadius.circular(19)),
                         minWidth: double.maxFinite,
                         elevation: 0.1,
-                        color: BColors.primary,
+                        color: BColors.secondary,
                         child: Stack(
                           alignment: Alignment.centerRight,
                           children: [
