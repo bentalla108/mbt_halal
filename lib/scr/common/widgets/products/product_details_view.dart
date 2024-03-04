@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
-import 'package:mbt_halal/scr/models/product.dart';
-import 'package:mbt_halal/scr/screens/cart/widgets/items_add_remove_to_cart.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/models/product.dart';
+import 'package:mtb_halal/scr/screens/cart/widgets/items_add_remove_to_cart.dart';
 
 class ProductDetails extends StatelessWidget {
   final ProductModel product;

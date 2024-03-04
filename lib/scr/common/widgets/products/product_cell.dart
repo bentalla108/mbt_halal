@@ -1,9 +1,9 @@
 // import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mbt_halal/scr/common/widgets/products/product_details_view.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
-import 'package:mbt_halal/scr/models/product.dart';
+import 'package:mtb_halal/scr/common/widgets/products/product_details_view.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/models/product.dart';
 
 class ProductCell extends StatelessWidget {
   // final OfferProductModel pObj;

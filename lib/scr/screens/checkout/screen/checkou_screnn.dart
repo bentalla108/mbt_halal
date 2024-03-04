@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
-import 'package:mbt_halal/scr/screens/checkout/widgets/payment_methode.dart';
-import 'package:mbt_halal/scr/screens/checkout/widgets/shipping_method.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/screens/checkout/widgets/payment_methode.dart';
+import 'package:mtb_halal/scr/screens/checkout/widgets/shipping_method.dart';
 
 import '../widgets/adress_infos.dart';
 import '../widgets/personal_info_form.dart';

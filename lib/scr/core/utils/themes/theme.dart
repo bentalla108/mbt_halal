@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/core/utils/constants/colors.dart';
-import 'package:mbt_halal/scr/core/utils/themes/appbar_theme.dart';
-import 'package:mbt_halal/scr/core/utils/themes/bottom_sheet_theme.dart';
-import 'package:mbt_halal/scr/core/utils/themes/checkbox_theme.dart';
-import 'package:mbt_halal/scr/core/utils/themes/chip_theme.dart';
-import 'package:mbt_halal/scr/core/utils/themes/elevated_button_theme.dart';
-import 'package:mbt_halal/scr/core/utils/themes/outlined_button_theme.dart';
-import 'package:mbt_halal/scr/core/utils/themes/text_field_theme.dart';
-import 'package:mbt_halal/scr/core/utils/themes/text_theme.dart';
+import 'package:mtb_halal/scr/core/utils/constants/colors.dart';
+import 'package:mtb_halal/scr/core/utils/themes/appbar_theme.dart';
+import 'package:mtb_halal/scr/core/utils/themes/bottom_sheet_theme.dart';
+import 'package:mtb_halal/scr/core/utils/themes/checkbox_theme.dart';
+import 'package:mtb_halal/scr/core/utils/themes/chip_theme.dart';
+import 'package:mtb_halal/scr/core/utils/themes/elevated_button_theme.dart';
+import 'package:mtb_halal/scr/core/utils/themes/outlined_button_theme.dart';
+import 'package:mtb_halal/scr/core/utils/themes/text_field_theme.dart';
+import 'package:mtb_halal/scr/core/utils/themes/text_theme.dart';
 
 class BAppTheme {
   BAppTheme._();

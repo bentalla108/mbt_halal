@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});

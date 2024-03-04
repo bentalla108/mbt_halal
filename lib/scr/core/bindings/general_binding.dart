@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:mbt_halal/scr/screens/authentication/controllers/auth_controller.dart';
+import 'package:mtb_halal/scr/screens/authentication/controllers/auth_controller.dart';
 
 import '../utils/preferences/pref_utils.dart';
 

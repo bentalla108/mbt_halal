@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/core/utils/constants/colors.dart';
-import 'package:mbt_halal/scr/core/utils/constants/sizes.dart';
+import 'package:mtb_halal/scr/core/utils/constants/colors.dart';
+import 'package:mtb_halal/scr/core/utils/constants/sizes.dart';
 
 class BRoundedContainer extends StatelessWidget {
   const BRoundedContainer(

@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/common/widgets/appbar/tabbar.dart';
-import 'package:mbt_halal/scr/common/widgets/container/search_container.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/common/widgets/appbar/tabbar.dart';
+import 'package:mtb_halal/scr/common/widgets/container/search_container.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
 
 import '../widgets/all_products.dart';
 import '../widgets/filter.dart';

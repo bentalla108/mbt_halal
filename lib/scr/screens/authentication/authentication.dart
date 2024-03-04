@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mbt_halal/scr/screens/authentication/screen/login_screen/login_screen.dart';
-import 'package:mbt_halal/scr/screens/authentication/screen/profile/profile_screen.dart';
-import 'package:mbt_halal/scr/screens/authentication/screen/signup_screen/signup_screen.dart';
+import 'package:mtb_halal/scr/screens/authentication/screen/login_screen/login_screen.dart';
+import 'package:mtb_halal/scr/screens/authentication/screen/profile/profile_screen.dart';
+import 'package:mtb_halal/scr/screens/authentication/screen/signup_screen/signup_screen.dart';
 
 import 'controllers/auth_controller.dart';
 

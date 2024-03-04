@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/core/utils/constants/colors.dart';
+import 'package:mtb_halal/scr/core/utils/constants/colors.dart';
 
 /// Custom Class for Light & secondary Text Themes
 class BTextTheme {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/common/widgets/products/product_cell.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
-import 'package:mbt_halal/scr/models/mock_model/product.dart';
+import 'package:mtb_halal/scr/common/widgets/products/product_cell.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/models/mock_model/product.dart';
 
 import '../../../common/widgets/grid_layout.dart';
 

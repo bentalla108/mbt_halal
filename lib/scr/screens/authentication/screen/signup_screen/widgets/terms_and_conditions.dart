@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
 
 import '../../../controllers/sign_up_controller/sign_up_controller.dart';
 

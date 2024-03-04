@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
-import 'package:mbt_halal/scr/screens/checkout/widgets/adress_infos.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/screens/checkout/widgets/adress_infos.dart';
 
 import '../../../core/utils/constants/colors.dart';
 

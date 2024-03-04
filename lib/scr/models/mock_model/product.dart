@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:mbt_halal/scr/models/product.dart';
+import 'package:mtb_halal/scr/models/product.dart';
 
 class MockProductModel extends ProductModel {
   static final _random = Random();

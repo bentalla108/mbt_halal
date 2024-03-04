@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/screens/cart/widgets/items_add_remove_to_cart.dart';
+import 'package:mtb_halal/scr/screens/cart/widgets/items_add_remove_to_cart.dart';
 import 'package:dotted_line/dotted_line.dart';
 
 import '../../../common/widgets/products/product_price_text.dart';

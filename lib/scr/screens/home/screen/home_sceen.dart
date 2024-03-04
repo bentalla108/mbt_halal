@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
-import 'package:mbt_halal/scr/screens/home/widgets/product_scrool.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/screens/home/widgets/product_scrool.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

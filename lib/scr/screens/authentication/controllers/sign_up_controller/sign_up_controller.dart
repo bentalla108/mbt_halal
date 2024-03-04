@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mbt_halal/scr/core/utils/helpers/globs.dart';
+import 'package:mtb_halal/scr/core/utils/helpers/globs.dart';
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();

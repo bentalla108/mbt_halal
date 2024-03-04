@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:mbt_halal/route.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
-import 'package:mbt_halal/scr/core/utils/themes/theme.dart';
-import 'package:mbt_halal/scr/screens/start/screen/splash_screen.dart';
+import 'package:mtb_halal/route.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/core/utils/themes/theme.dart';
+import 'package:mtb_halal/scr/screens/start/screen/splash_screen.dart';
 
 import 'scr/core/bindings/general_binding.dart';
 

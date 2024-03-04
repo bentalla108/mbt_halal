@@ -13,80 +13,47 @@ class CreditCartFormState extends State<CreditCartForm> {
   String expiryDate = '';
   String cardHolderName = '';
   String cvvCode = '';
-  bool isCvvFocused = false;
-  bool useGlassMorphism = false;
-  bool useBackgroundImage = false;
-  bool useFloatingAnimation = false;
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
-        CreditCardWidget(
-          textStyle: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(fontSize: 12, color: Colors.white),
-          enableFloatingCard: useFloatingAnimation,
-
+        CreditCardForm(
+          formKey: formKey,
+          obscureCvv: true,
+          obscureNumber: true,
           cardNumber: cardNumber,
-          expiryDate: expiryDate,
-          cardHolderName: cardHolderName,
           cvvCode: cvvCode,
-          // bankName: 'Axis Bank',
-
-          showBackView: isCvvFocused,
-          obscureCardNumber: true,
-          obscureCardCvv: true,
           isHolderNameVisible: true,
-          //
-          isSwipeGestureEnabled: true,
-          onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
-        ),
-        const SizedBox(
-          height: 2,
-        ),
-        Column(
-          children: <Widget>[
-            CreditCardForm(
-              formKey: formKey,
-              obscureCvv: true,
-              obscureNumber: true,
-              cardNumber: cardNumber,
-              cvvCode: cvvCode,
-              isHolderNameVisible: true,
-              isCardNumberVisible: true,
-              isExpiryDateVisible: true,
-              cardHolderName: cardHolderName,
-              expiryDate: expiryDate,
-              inputConfiguration: const InputConfiguration(
-                cardNumberDecoration: InputDecoration(
-                  labelText: 'Number',
-                  hintText: 'XXXX XXXX XXXX XXXX',
-                ),
-                expiryDateDecoration: InputDecoration(
-                  labelText: 'Expired Date',
-                  hintText: 'XX/XX',
-                ),
-                cvvCodeDecoration: InputDecoration(
-                  labelText: 'CVV',
-                  hintText: 'XXX',
-                ),
-                cardHolderDecoration: InputDecoration(
-                  labelText: 'Card Holder',
-                ),
-              ),
-              onCreditCardModelChange: onCreditCardModelChange,
+          isCardNumberVisible: true,
+          isExpiryDateVisible: true,
+          cardHolderName: cardHolderName,
+          expiryDate: expiryDate,
+          inputConfiguration: const InputConfiguration(
+            cardNumberDecoration: InputDecoration(
+              labelText: 'Number',
+              hintText: 'XXXX XXXX XXXX XXXX',
             ),
-            const SizedBox(height: 20),
-            // GestureDetector(
-            //   onTap: _onValidate,
-            // ),
-          ],
+            expiryDateDecoration: InputDecoration(
+              labelText: 'Expired Date',
+              hintText: 'XX/XX',
+            ),
+            cvvCodeDecoration: InputDecoration(
+              labelText: 'CVV',
+              hintText: 'XXX',
+            ),
+            cardHolderDecoration: InputDecoration(
+              labelText: 'Card Holder',
+            ),
+          ),
+          onCreditCardModelChange: onCreditCardModelChange,
         ),
+        const SizedBox(height: 20),
+        // GestureDetector(
+        //   onTap: _onValidate,
+        // ),
       ],
     );
   }
@@ -105,7 +72,6 @@ class CreditCartFormState extends State<CreditCartForm> {
       expiryDate = creditCardModel.expiryDate;
       cardHolderName = creditCardModel.cardHolderName;
       cvvCode = creditCardModel.cvvCode;
-      isCvvFocused = creditCardModel.isCvvFocused;
     });
   }
 }

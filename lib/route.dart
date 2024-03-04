@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
-import 'package:mbt_halal/scr/screens/authentication/screen/login_screen/login_screen.dart';
-import 'package:mbt_halal/scr/screens/authentication/screen/otp/otp_screen.dart';
-import 'package:mbt_halal/scr/screens/authentication/screen/profile/profile_screen.dart';
-import 'package:mbt_halal/scr/screens/authentication/screen/signup_screen/signup_screen.dart';
-import 'package:mbt_halal/scr/screens/cart/screen/cart_screen.dart';
-import 'package:mbt_halal/scr/screens/home/screen/home_sceen.dart';
-import 'package:mbt_halal/scr/screens/start/screen/loading.dart';
-import 'package:mbt_halal/scr/screens/start/screen/splash_screen.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/screens/authentication/screen/login_screen/login_screen.dart';
+import 'package:mtb_halal/scr/screens/authentication/screen/otp/otp_screen.dart';
+import 'package:mtb_halal/scr/screens/authentication/screen/profile/profile_screen.dart';
+import 'package:mtb_halal/scr/screens/authentication/screen/signup_screen/signup_screen.dart';
+import 'package:mtb_halal/scr/screens/cart/screen/cart_screen.dart';
+import 'package:mtb_halal/scr/screens/home/screen/home_sceen.dart';
+import 'package:mtb_halal/scr/screens/start/screen/loading.dart';
+import 'package:mtb_halal/scr/screens/start/screen/splash_screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
   NavigationMenu.routeName: (context) => const NavigationMenu(),

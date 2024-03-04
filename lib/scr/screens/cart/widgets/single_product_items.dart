@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
 
 import '../../../common/widgets/container/rounded_image.dart';
 import '../../../common/widgets/products/product_tittle.dart';

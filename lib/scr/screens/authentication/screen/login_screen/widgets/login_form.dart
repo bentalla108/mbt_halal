@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
-import 'package:mbt_halal/scr/screens/authentication/controllers/login_controller/login_controller.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/screens/authentication/controllers/login_controller/login_controller.dart';
 
 import '../../../controllers/auth_controller.dart';
 

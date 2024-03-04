@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mbt_halal/scr/common/widgets/custom_text.dart';
-import 'package:mbt_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/common/widgets/custom_text.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
 
 import '../../../models/cart_item.dart';
 
