@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mtb_halal/scr/core/app_export.dart';
-import 'package:mtb_halal/scr/screens/authentication/screen/login_screen/login_screen.dart';
-import 'package:mtb_halal/scr/screens/authentication/screen/otp/otp_screen.dart';
-import 'package:mtb_halal/scr/screens/authentication/screen/profile/profile_screen.dart';
-import 'package:mtb_halal/scr/screens/authentication/screen/signup_screen/signup_screen.dart';
-import 'package:mtb_halal/scr/screens/cart/screen/cart_screen.dart';
-import 'package:mtb_halal/scr/screens/home/screen/home_sceen.dart';
-import 'package:mtb_halal/scr/screens/start/screen/loading.dart';
-import 'package:mtb_halal/scr/screens/start/screen/splash_screen.dart';
+import 'scr/core/app_export.dart';
+import 'scr/screens/authentication/screen/login_screen/login_screen.dart';
+import 'scr/screens/authentication/screen/otp/otp_screen.dart';
+import 'scr/screens/authentication/screen/profile/profile_screen.dart';
+import 'scr/screens/authentication/screen/signup_screen/signup_screen.dart';
+import 'scr/screens/home/screen/home_sceen.dart';
+import 'scr/screens/start/screen/loading.dart';
+import 'scr/screens/start/screen/splash_screen.dart';
+import 'scr/screens/cart/screen/my_cart_screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
   NavigationMenu.routeName: (context) => const NavigationMenu(),
@@ -22,6 +22,6 @@ final Map<String, WidgetBuilder> routes = {
   OtpScreen.routeName: (context) => const OtpScreen(),
   HomeScreen.routeName: (context) => const HomeScreen(),
   // ProductsScreen.routeName: (context) => const StoreScreen(),
-  CartScreen.routeName: (context) => const CartScreen(),
+  MyCartView.routeName: (context) => const MyCartView(),
   ProfileScreen.routeName: (context) => const ProfileScreen(),
 };

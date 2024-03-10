@@ -1,4 +1,7 @@
 class BTextsConstant {
+  static const appName = "MKT Halal";
+  static const userPayload = "user_payload";
+  static const userLogin = "user_login";
   // -- GLOBAL Texts
   static const String intro = "The African Grocery Store!";
   static const String welcomBack = "Welcom back";

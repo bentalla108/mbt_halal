@@ -1,7 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mtb_halal/scr/core/utils/helpers/globs.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/core/utils/helpers/helper_functions.dart';
+import 'package:mtb_halal/scr/core/utils/http/endpoint.dart';
+import 'package:mtb_halal/scr/core/utils/http/http_service_call.dart';
+
+import '../../../../core/utils/preferences/pref_utils.dart';
+import '../auth_controller.dart';
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
@@ -41,29 +47,52 @@ class SignUpController extends GetxController {
   //! Check Email and Password & Call Api
   void apiCallSignUp() {
     if (!GetUtils.isEmail(emailController.value.text)) {
-      Get.snackbar(Globs.appName, "Pleaser enter valid email address");
+      Get.snackbar(BTextsConstant.appName, "Pleaser enter valid email address");
       return;
     }
     if (passwordController.value.text.length < 6) {
-      Get.snackbar(
-          Globs.appName, "Pleaser enter valid password min 6 character");
+      Get.snackbar(BTextsConstant.appName,
+          "Pleaser enter valid password min 6 character");
       return;
     }
     if (usernameController.value.text.isEmpty) {
-      Get.snackbar(Globs.appName, "Pleaser enter username");
+      Get.snackbar(BTextsConstant.appName, "Pleaser enter username");
       return;
     }
     if (lastNameController.value.text.isEmpty) {
-      Get.snackbar(Globs.appName, "Pleaser enter username");
+      Get.snackbar(BTextsConstant.appName, "Pleaser enter username");
       return;
     }
     if (!privacyPolicy.value) {
-      Get.snackbar(
-          Globs.appName, "Pleaser check privacy policy and terms conditions");
+      Get.snackbar(BTextsConstant.appName,
+          "Pleaser check privacy policy and terms conditions");
       return;
     }
+
     //: Loading
-    // Globs.showHUD();
+    BHelperFunctions.showHUD();
+
+    // call Api SignUp
+    HttpServiceCall.post(SVKey.svSignUp, {
+      "username": usernameController.value.text,
+      "email": emailController.value.text,
+      "password": passwordController.value.text,
+    }, withSuccess: (resObj) async {
+      BHelperFunctions.hideHUD();
+
+      var payload = resObj[KKey.payload] as Map? ?? {};
+
+      PrefUtils.udSet(payload, BTextsConstant.userPayload);
+      PrefUtils.udBoolSet(true, BTextsConstant.userLogin);
+
+      Get.delete<SignUpController>();
+      AuthNavigationController.instance.goToLogin();
+
+      Get.snackbar(BTextsConstant.appName, resObj["message"].toString());
+    }, failure: (err) async {
+      BHelperFunctions.hideHUD();
+      Get.snackbar(BTextsConstant.appName, err.toString());
+    });
   }
 }
 

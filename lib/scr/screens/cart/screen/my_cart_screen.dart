@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:mtb_halal/scr/core/app_export.dart';
-import 'package:mtb_halal/scr/screens/checkout/widgets/adress_infos.dart';
-
-import '../../../core/utils/constants/colors.dart';
+import '../../../core/app_export.dart';
 
 import '../../checkout/screen/checkou_screnn.dart';
 import '../widgets/cart_item_row.dart';
-import '../widgets/checkout_view.dart';
 
 class MyCartView extends StatefulWidget {
   const MyCartView({super.key});
+  static String routeName = "cartScreen";
 
   @override
   State<MyCartView> createState() => _MyCartViewState();
@@ -32,7 +28,7 @@ class _MyCartViewState extends State<MyCartView> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "My Cart",
         ),
       ),

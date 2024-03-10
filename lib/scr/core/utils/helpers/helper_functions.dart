@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -37,6 +40,15 @@ class BHelperFunctions {
     } else {
       return null;
     }
+  }
+
+  static void showHUD({String status = "loading ....."}) async {
+    await Future.delayed(const Duration(milliseconds: 1));
+    EasyLoading.show(status: status);
+  }
+
+  static void hideHUD() {
+    EasyLoading.dismiss();
   }
 
   static void showSnackBar(String message) {
@@ -111,5 +123,13 @@ class BHelperFunctions {
       wrappedList.add(Row(children: rowChildren));
     }
     return wrappedList;
+  }
+
+  static Future<String> timeZone() async {
+    try {
+      return await FlutterTimezone.getLocalTimezone();
+    } on PlatformException {
+      return "";
+    }
   }
 }

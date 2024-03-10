@@ -1,8 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mtb_halal/scr/core/app_export.dart';
 
-import '../../../../core/utils/helpers/globs.dart';
+import '../../../../core/utils/helpers/helper_functions.dart';
+import '../../../../core/utils/http/endpoint.dart';
+import '../../../../core/utils/http/http_service_call.dart';
+import '../../../../core/utils/preferences/pref_utils.dart';
+import '../auth_controller.dart';
 
 class LoginController extends GetxController {
   static LoginController get instance => Get.find();
@@ -30,15 +35,35 @@ class LoginController extends GetxController {
   //! Check Email and Password & Call Api
   void apiCallLogin() {
     if (!GetUtils.isEmail(emailController.value.text)) {
-      Get.snackbar(Globs.appName, "Pleaser enter valid email address");
+      Get.snackbar(BTextsConstant.appName, "Pleaser enter valid email address");
       return;
     }
     if (passwordController.value.text.length < 6) {
-      Get.snackbar(
-          Globs.appName, "Pleaser enter valid password min 6 character");
+      Get.snackbar(BTextsConstant.appName,
+          "Pleaser enter valid password min 6 character");
       return;
     }
     //: Loading
     // Globs.showHUD();
+    //
+    HttpServiceCall.post(SVKey.svLogin, {
+      "email": emailController.value.text,
+      "password": passwordController.value.text,
+    }, withSuccess: (resObj) async {
+      BHelperFunctions.hideHUD();
+
+      var payload = resObj[KKey.payload] as Map? ?? {};
+
+      PrefUtils.udSet(payload, BTextsConstant.userPayload);
+      PrefUtils.udBoolSet(true, BTextsConstant.userLogin);
+
+      Get.delete<LoginController>();
+      AuthNavigationController.instance.goToProfile();
+
+      Get.snackbar(BTextsConstant.appName, resObj["message"].toString());
+    }, failure: (err) async {
+      BHelperFunctions.hideHUD();
+      Get.snackbar(BTextsConstant.appName, err.toString());
+    });
   }
 }

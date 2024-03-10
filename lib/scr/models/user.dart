@@ -1,35 +1,52 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:untitled/models/cart_item.dart';
+class UserPayloadModel {
+  int? userId;
+  String? username;
+  String? name;
+  String? email;
+  String? mobile;
+  String? mobileCode;
+  String? password;
+  String? authToken;
+  int? status;
+  String? createdDate;
 
-// class UserModel {
-//   static const ID = "id";
-//   static const NAME = "name";
-//   static const EMAIL = "email";
-//   static const CART = "cart";
+  UserPayloadModel(
+      {this.userId,
+      this.username,
+      this.name,
+      this.email,
+      this.mobile,
+      this.mobileCode,
+      this.password,
+      this.authToken,
+      this.status,
+      this.createdDate});
 
-//    String id;
-//    String name;
-//    String email;
-//    List<CartItemModel> cart;
+  UserPayloadModel.fromJson(Map<String, dynamic> json) {
+    userId = json['user_id'];
+    username = json['username'];
+    name = json['name'];
+    email = json['email'];
+    mobile = json['mobile'];
+    mobileCode = json['mobile_code'];
+    password = json['password'];
+    authToken = json['auth_token'];
+    status = json['status'];
+    createdDate = json['created_date'];
+  }
 
-//   UserModel({this.id, this.name, this.email, this.cart});
-
-//   UserModel.fromSnapshot(DocumentSnapshot snapshot) {
-//     name = snapshot.data()[NAME];
-//     email = snapshot.data()[EMAIL];
-//     id = snapshot.data()[ID];
-//     cart = _convertCartItems(snapshot.data()[CART] ?? []);
-//   }
-
-//   List<CartItemModel> _convertCartItems(List cartFomDb){
-//     List<CartItemModel> _result = [];
-//     if(cartFomDb.length > 0){
-//       cartFomDb.forEach((element) {
-//       _result.add(CartItemModel.fromMap(element));
-//     });
-//     }
-//     return _result;
-//   }
-
-//   List cartItemsToJson() => cart.map((item) => item.toJson()).toList();
-// }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['user_id'] = userId;
+    data['username'] = username;
+    data['name'] = name;
+    data['email'] = email;
+    data['mobile'] = mobile;
+    data['mobile_code'] = mobileCode;
+    data['password'] = password;
+    data['auth_token'] = authToken;
+    data['status'] = status;
+    data['created_date'] = createdDate;
+    return data;
+  }
+}

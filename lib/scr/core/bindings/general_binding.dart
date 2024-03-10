@@ -9,6 +9,7 @@ class GeneralBindings extends Bindings {
     // Bind your controllers or other dependencies here
     Get.put(AuthNavigationController());
     Get.put(PrefUtils());
+
     //  more bindings as needed
   }
 }

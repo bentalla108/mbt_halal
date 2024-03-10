@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
 import 'package:mtb_halal/scr/screens/home/widgets/product_scrool.dart';
 
+import '../widgets/category.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -67,25 +69,41 @@ class HomeScreen extends StatelessWidget {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: const [
+                  SizedBox(
+                    height: BSizes.spaceBtwSections,
+                  ),
+                  SectionHeading(
+                    title: 'Categorie',
+                  ),
+                  SizedBox(
+                    height: BSizes.spaceBtwItems,
+                  ),
+
+                  // Categorie sections
+                  CategoryHomeWidgets(),
+                  SizedBox(
+                    height: BSizes.spaceBtwSections,
+                  ),
+
                   SectionHeading(
                     title: 'Best hightlight',
                   ),
                   SizedBox(
-                    height: 10,
+                    height: BSizes.spaceBtwItems,
                   ),
                   ProductSCrool(),
                   SizedBox(
-                    height: 30,
+                    height: BSizes.spaceBtwSections,
                   ),
                   SectionHeading(
                     title: 'See our Latest products',
                   ),
                   SizedBox(
-                    height: 10,
+                    height: BSizes.spaceBtwItems,
                   ),
                   ProductSCrool(),
                   SizedBox(
-                    height: 30,
+                    height: BSizes.spaceBtwSections,
                   )
                 ],
               )

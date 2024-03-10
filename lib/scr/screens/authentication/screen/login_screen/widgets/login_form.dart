@@ -77,9 +77,7 @@ class BLoginForm extends StatelessWidget {
                 style: const ButtonStyle(
                     backgroundColor:
                         MaterialStatePropertyAll(BColors.secondary)),
-                // onPressed: () => Get.to(() => const ProfileScreen()
-                // ),
-                onPressed: authNavigationController.isLogged,
+                onPressed: LoginController.instance.apiCallLogin,
                 child: const Text('Sing In'),
               ),
             ),
