@@ -92,7 +92,10 @@ class ProductDetails extends StatelessWidget {
                             fontWeight: FontWeight.w700),
                       ),
                       const Spacer(),
-                      const ItemsAddRemoveToCart()
+                      ItemsAddRemoveToCart(
+                        didQtyAdd: () {},
+                        didQtySub: () {},
+                      )
                     ],
                   ),
                   const SizedBox(
@@ -105,7 +108,7 @@ class ProductDetails extends StatelessWidget {
                   const SizedBox(
                     height: 8,
                   ),
-                  Text(
+                  const Text(
                     "Description",
                     style: TextStyle(
                         color: BColors.secondary,
@@ -128,7 +131,7 @@ class ProductDetails extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(BSizes.md),
+              padding: const EdgeInsets.all(BSizes.md),
               child: ElevatedButton(
                 style: const ButtonStyle(
                     backgroundColor:

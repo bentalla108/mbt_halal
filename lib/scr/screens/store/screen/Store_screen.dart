@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:mtb_halal/scr/common/widgets/appbar/tabbar.dart';
 import 'package:mtb_halal/scr/common/widgets/container/search_container.dart';
@@ -15,7 +13,7 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+    return const DefaultTabController(
         length: 4,
         child: Scaffold(
             appBar: BAppbar(

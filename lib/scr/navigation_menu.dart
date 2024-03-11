@@ -4,7 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:mtb_halal/scr/core/utils/constants/colors.dart';
 import 'package:mtb_halal/scr/screens/cart/screen/my_cart_screen.dart';
 import 'package:mtb_halal/scr/screens/home/screen/home_sceen.dart';
-import 'package:mtb_halal/scr/screens/store/screen/Store_screen.dart';
+import 'package:mtb_halal/scr/screens/store/screen/store_screen.dart';
 
 import 'screens/authentication/authentication.dart';
 

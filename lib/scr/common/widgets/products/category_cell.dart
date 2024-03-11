@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
 
-import '../../../models/type_model.dart';
+import '../../../models/category_model.dart';
 
 class CategoryCell extends StatelessWidget {
   final CategoryModel pObj;

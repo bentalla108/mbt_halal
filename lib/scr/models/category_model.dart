@@ -10,16 +10,16 @@ class CategoryModel {
   CategoryModel({this.typeId, this.typeName, this.image, this.color});
 
   CategoryModel.fromJson(Map<String, dynamic> json) {
-    typeId = json['type_id'];
-    typeName = json['type_name'];
+    typeId = json['id'];
+    typeName = json['typeName'];
     image = json['image'];
     color = HexColor.fromHex(json['color'].toString());
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['type_id'] = typeId;
-    data['type_name'] = typeName;
+    data['id'] = typeId;
+    data['typeName'] = typeName;
     data['image'] = image;
     data['color'] = color?.toHex();
     return data;

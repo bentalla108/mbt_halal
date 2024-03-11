@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mtb_halal/scr/common/widgets/appbar/appbar.dart';
+import 'package:mtb_halal/scr/core/utils/constants/sizes.dart';
 
 import '../../controllers/auth_controller.dart';
 import 'widgets/profile_menu.dart';
@@ -15,17 +16,54 @@ class ProfileScreen extends StatelessWidget {
     final AuthNavigationController authNavigationController = Get.find();
 
     return Scaffold(
-      appBar: const BAppbar(
-        title: Text("Profile"),
+      appBar: BAppbar(
+        title: const Text("Account seetings"),
         centerTitle: true,
         showBackArrow: false,
         appBarSpacing: false,
+        actions: [
+          GestureDetector(
+              onTap: authNavigationController.logOut,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Icon(Icons.logout),
+                  Text(
+                    'Log out',
+                    style: Theme.of(context).textTheme.labelSmall,
+                  )
+                ],
+              ))
+        ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ProfilePic(),
+            Row(
+              children: [
+                const ProfilePic(),
+                const SizedBox(
+                  width: BSizes.spaceBtwItems,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      'NOM -Prenom',
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge!
+                          .copyWith(fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      'email@email.fr',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    )
+                  ],
+                )
+              ],
+            ),
             const SizedBox(height: 20),
             ProfileMenu(
               text: "Personal informations",
@@ -51,11 +89,6 @@ class ProfileScreen extends StatelessWidget {
               text: "Seetings",
               icon: Icons.settings,
               press: () {},
-            ),
-            ProfileMenu(
-              text: "Log Out",
-              icon: Icons.logout,
-              press: authNavigationController.logOut,
             ),
           ],
         ),

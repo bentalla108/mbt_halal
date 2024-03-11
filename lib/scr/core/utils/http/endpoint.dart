@@ -8,6 +8,10 @@ class SVKey {
   static const svSignUp = '${baseUrl}user/signup';
   static const svHome = '${baseUrl}home';
   static const svProductDetail = '${baseUrl}product_detail';
+  static const svProductLatest = '${baseUrl}product/latest_products';
+  static const svProductsCategory = '${baseUrl}product/products_category';
+
+  ///////////////////
   static const svAddRemoveFavorite = '${baseUrl}add_remove_favorite';
   static const svFavorite = '${baseUrl}favorite_list';
   static const svExploreList = '${baseUrl}explore_category_list';

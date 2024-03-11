@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'scr/core/app_export.dart';
-import 'scr/screens/authentication/screen/login_screen/login_screen.dart';
 import 'scr/screens/authentication/screen/otp/otp_screen.dart';
 import 'scr/screens/authentication/screen/profile/profile_screen.dart';
-import 'scr/screens/authentication/screen/signup_screen/signup_screen.dart';
 import 'scr/screens/home/screen/home_sceen.dart';
 import 'scr/screens/start/screen/loading.dart';
 import 'scr/screens/start/screen/splash_screen.dart';

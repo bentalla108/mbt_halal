@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
 
 import '../../../common/widgets/products/category_cell.dart';
-import '../../../models/type_model.dart';
+import '../../../models/category_model.dart';
 
 class CategoryHomeWidgets extends StatelessWidget {
   const CategoryHomeWidgets({

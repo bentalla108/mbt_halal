@@ -13,3 +13,7 @@ export 'package:mtb_halal/scr/common/widgets/custom_headline_text.dart';
 export 'package:mtb_halal/scr/screens/home/widgets/banner_section.dart';
 export 'package:mtb_halal/scr/core/utils/helpers/size_utils.dart';
 export 'package:mtb_halal/scr/common/widgets/custom_field_text.dart';
+export 'package:mtb_halal/scr/core/utils/preferences/pref_utils.dart';
+export 'package:mtb_halal/scr/models/user.dart';
+export 'package:mtb_halal/scr/screens/authentication/screen/login_screen/login_screen.dart';
+export 'package:mtb_halal/scr/screens/authentication/screen/signup_screen/signup_screen.dart';

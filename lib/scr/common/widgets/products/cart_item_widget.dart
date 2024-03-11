@@ -45,7 +45,7 @@ class CartItemWidget extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                    icon: Icon(Icons.chevron_right),
+                    icon: const Icon(Icons.chevron_right),
                     onPressed: () {
                       // cartController.increaseQuantity(cartItem);
                     }),

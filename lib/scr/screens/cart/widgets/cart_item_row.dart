@@ -3,6 +3,8 @@ import 'package:mtb_halal/scr/core/app_export.dart';
 import 'package:mtb_halal/scr/models/mock_model/product.dart';
 import 'package:mtb_halal/scr/models/product.dart';
 
+import 'items_add_remove_to_cart.dart';
+
 class CartItemRow extends StatelessWidget {
   final ProductModel product = MockProductModel.random();
   // final CartItemModel cObj;
@@ -94,59 +96,6 @@ class CartItemRow extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            InkWell(
-                              onTap: didQtySub,
-                              child: Container(
-                                width: 40,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      color: BColors.secondary.withOpacity(0.5),
-                                      width: 1),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                alignment: Alignment.center,
-                                child: Icon(
-                                  Icons.remove,
-                                  size: 15,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            // Text(
-                            //   (cObj.qty ?? 0).toString(),
-                            //   style: TextStyle(
-                            //       color: BColors.secondary,
-                            //       fontSize: 16,
-                            //       fontWeight: FontWeight.w600),
-                            // ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            InkWell(
-                              onTap: didQtyAdd,
-                              child: Container(
-                                width: 40,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      color: BColors.secondary.withOpacity(0.5),
-                                      width: 1),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                alignment: Alignment.center,
-                                child: Icon(
-                                  color: Colors.green,
-                                  Icons.add,
-                                  size: 16,
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
                             const Text(
                               // "\$${(cObj.totalPrice ?? 0).toStringAsFixed(2)}",
                               '14\$ * 2',
@@ -155,6 +104,22 @@ class CartItemRow extends StatelessWidget {
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600),
                             ),
+
+                            // // Text(
+                            // //   (cObj.qty ?? 0).toString(),
+                            // //   style: TextStyle(
+                            // //       color: BColors.secondary,
+                            // //       fontSize: 16,
+                            // //       fontWeight: FontWeight.w600),
+                            // // ),
+
+                            const Spacer(),
+
+                            ItemsAddRemoveToCart(
+                              didQtyAdd: didQtyAdd,
+                              didQtySub: didQtySub,
+                            ),
+                            const Spacer()
                           ],
                         )
                       ]),

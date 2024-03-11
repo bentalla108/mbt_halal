@@ -6,7 +6,6 @@ import 'package:mtb_halal/scr/core/app_export.dart';
 import '../../../../core/utils/helpers/helper_functions.dart';
 import '../../../../core/utils/http/endpoint.dart';
 import '../../../../core/utils/http/http_service_call.dart';
-import '../../../../core/utils/preferences/pref_utils.dart';
 import '../auth_controller.dart';
 
 class LoginController extends GetxController {
@@ -44,7 +43,7 @@ class LoginController extends GetxController {
       return;
     }
     //: Loading
-    // Globs.showHUD();
+    BHelperFunctions.showHUD();
     //
     HttpServiceCall.post(SVKey.svLogin, {
       "email": emailController.value.text,
@@ -58,7 +57,7 @@ class LoginController extends GetxController {
       PrefUtils.udBoolSet(true, BTextsConstant.userLogin);
 
       Get.delete<LoginController>();
-      AuthNavigationController.instance.goToProfile();
+      AuthNavigationController.instance.screenSelect();
 
       Get.snackbar(BTextsConstant.appName, resObj["message"].toString());
     }, failure: (err) async {

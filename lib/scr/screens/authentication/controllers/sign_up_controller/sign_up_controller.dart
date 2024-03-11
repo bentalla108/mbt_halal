@@ -6,7 +6,6 @@ import 'package:mtb_halal/scr/core/utils/helpers/helper_functions.dart';
 import 'package:mtb_halal/scr/core/utils/http/endpoint.dart';
 import 'package:mtb_halal/scr/core/utils/http/http_service_call.dart';
 
-import '../../../../core/utils/preferences/pref_utils.dart';
 import '../auth_controller.dart';
 
 class SignUpController extends GetxController {

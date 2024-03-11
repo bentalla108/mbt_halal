@@ -6,7 +6,7 @@ class SocialInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
+    return const Form(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       // SocialTitle(),
       SizedBox(

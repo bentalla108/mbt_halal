@@ -21,7 +21,7 @@ class ProductModel {
 
   factory ProductModel.fromMap(Map<String, dynamic> data) {
     return ProductModel(
-      id: data['id'],
+      id: data['id'].toString(),
       image: data['image'],
       name: data['name'],
       brand: data['brand'],
@@ -30,5 +30,18 @@ class ProductModel {
       description: data['description'],
       price: data['price'].toDouble(),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'image': image,
+      'name': name,
+      'brand': brand,
+      'price': price,
+      'description': description,
+      'inStock': inStock,
+      'quantity': quantity,
+    };
   }
 }

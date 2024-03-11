@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
-import 'package:mtb_halal/scr/screens/home/widgets/product_scrool.dart';
+import 'package:mtb_halal/scr/screens/home/controllers/home_controller.dart';
 
+import '../../../common/widgets/products/product_cell.dart';
 import '../widgets/category.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,6 +15,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final homeController = Get.put(HomeController());
+    var product = homeController.lastProductArr;
     List img = [
       'assets/images/img/3.png',
       'assets/images/img/2.png',
@@ -68,7 +72,7 @@ class HomeScreen extends StatelessWidget {
               BannerSection(img: img, details: details),
               Column(
                 mainAxisSize: MainAxisSize.min,
-                children: const [
+                children: [
                   SizedBox(
                     height: BSizes.spaceBtwSections,
                   ),
@@ -76,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                     title: 'Categorie',
                   ),
                   SizedBox(
-                    height: BSizes.spaceBtwItems,
+                    height: 8,
                   ),
 
                   // Categorie sections
@@ -88,20 +92,28 @@ class HomeScreen extends StatelessWidget {
                   SectionHeading(
                     title: 'Best hightlight',
                   ),
-                  SizedBox(
-                    height: BSizes.spaceBtwItems,
+                  // SizedBox(
+                  //   height: BSizes.spaceBtwItems,
+                  // ),
+                  ProductCell(
+                    product: product,
+                    onPressed: () {},
+                    onCart: () {},
                   ),
-                  ProductSCrool(),
                   SizedBox(
                     height: BSizes.spaceBtwSections,
                   ),
                   SectionHeading(
                     title: 'See our Latest products',
                   ),
-                  SizedBox(
-                    height: BSizes.spaceBtwItems,
+                  // SizedBox(
+                  //   height: BSizes.spaceBtwItems,
+                  // ),
+                  ProductCell(
+                    product: product,
+                    onPressed: () {},
+                    onCart: () {},
                   ),
-                  ProductSCrool(),
                   SizedBox(
                     height: BSizes.spaceBtwSections,
                   )
