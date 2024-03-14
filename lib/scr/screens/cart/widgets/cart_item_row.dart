@@ -1,28 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
-import 'package:mtb_halal/scr/models/mock_model/product.dart';
-import 'package:mtb_halal/scr/models/product.dart';
 
 import 'items_add_remove_to_cart.dart';
 
 class CartItemRow extends StatelessWidget {
-  final ProductModel product = MockProductModel.random();
-  // final CartItemModel cObj;
   final VoidCallback didDelete;
   final VoidCallback didQtyAdd;
   final VoidCallback didQtySub;
 
-  CartItemRow(
+  final String name;
+
+  final String image;
+
+  final double price;
+
+  final int prodQuantity;
+
+  const CartItemRow(
       {super.key,
       required this.didQtyAdd,
       required this.didQtySub,
-      required this.didDelete});
+      required this.didDelete,
+      required this.name,
+      required this.image,
+      required this.price,
+      required this.prodQuantity});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
-        height: 120,
+        // height: 120,
         padding: const EdgeInsets.symmetric(vertical: 10),
         color: Colors.white,
         child: Column(
@@ -32,24 +40,12 @@ class CartItemRow extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                //  CachedNetworkImage(
-                //   imageUrl: cObj.image ?? "",
-                //   placeholder: (context, url) => const Center(
-                //     child: CircularProgressIndicator(),
-                //   ),
-                //   errorWidget: (context, url, error) => const Icon(Icons.error),
-                //  width: 80,
-                //   height: 65,
-                //   fit: BoxFit.contain,
-                // ),
-
                 CustomImageView(
-                  imagePath: product.image,
+                  imagePath: image,
                   width: 80,
                   height: 65,
                   fit: BoxFit.contain,
                 ),
-
                 const SizedBox(
                   width: 15,
                 ),
@@ -61,9 +57,7 @@ class CartItemRow extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Text(
-                                // cObj.name ?? "",
-
-                                product.name,
+                                name,
                                 style: const TextStyle(
                                     color: BColors.secondary,
                                     fontSize: 16,
@@ -84,8 +78,8 @@ class CartItemRow extends StatelessWidget {
                           height: 2,
                         ),
                         Text(
-                          // "${cObj.unitValue}${cObj.unitName} Price",
-                          product.description,
+                          // "${CartProduct.unitValue}${CartProduct.unitName} Price",
+                          name,
                           style: TextStyle(
                               color: BColors.secondary.withOpacity(0.8),
                               fontSize: 14,
@@ -96,17 +90,17 @@ class CartItemRow extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            const Text(
-                              // "\$${(cObj.totalPrice ?? 0).toStringAsFixed(2)}",
-                              '14\$ * 2',
-                              style: TextStyle(
+                            Text(
+                              // "\$${(CartProduct.totalPrice ?? 0).toStringAsFixed(2)}",
+                              price.toString(),
+                              style: const TextStyle(
                                   color: BColors.secondary,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600),
                             ),
 
                             // // Text(
-                            // //   (cObj.qty ?? 0).toString(),
+                            // //   (CartProduct.qty ?? 0).toString(),
                             // //   style: TextStyle(
                             // //       color: BColors.secondary,
                             // //       fontSize: 16,
@@ -116,6 +110,7 @@ class CartItemRow extends StatelessWidget {
                             const Spacer(),
 
                             ItemsAddRemoveToCart(
+                              quantity: prodQuantity.toString(),
                               didQtyAdd: didQtyAdd,
                               didQtySub: didQtySub,
                             ),

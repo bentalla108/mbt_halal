@@ -17,10 +17,10 @@ class SVKey {
   static const svExploreList = '${baseUrl}explore_category_list';
   static const svExploreItemList = '${baseUrl}explore_category_items_list';
 
-  static const svAddToCart = '${baseUrl}add_to_cart';
-  static const svUpdateCart = '${baseUrl}update_cart';
-  static const svRemoveCart = '${baseUrl}remove_cart';
-  static const svCartList = '${baseUrl}cart_list';
+  static const svAddToCart = '${baseUrl}cart/add_to_cart';
+  static const svUpdateCart = '${baseUrl}cart/update_cart';
+  static const svRemoveCart = '${baseUrl}cart/remove_to_cart';
+  static const svCartList = '${baseUrl}cart/all_cart_item';
   static const svOrderPlace = '${baseUrl}order_place';
 
   static const svAddDeliveryAddress = '${baseUrl}add_delivery_address';

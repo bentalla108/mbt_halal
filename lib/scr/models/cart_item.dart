@@ -1,5 +1,5 @@
 class CartItemModel {
-  final String id;
+  final String cartId;
   final String image;
   final String name;
   final int quantity;
@@ -10,27 +10,31 @@ class CartItemModel {
   CartItemModel({
     required this.productId,
     required this.price,
-    required this.id,
+    required this.cartId,
     required this.image,
     required this.name,
     required this.quantity,
     required this.cost,
   });
 
-  factory CartItemModel.fromMap(Map<String, dynamic> data) {
+  factory CartItemModel.fromMap(Map<String, dynamic>? data) {
+    if (data == null) {
+      throw ArgumentError("Data cannot be null");
+    }
+
     return CartItemModel(
-      id: data['id'],
-      image: data['image'],
-      name: data['name'],
-      quantity: data['quantity'],
-      cost: data['cost'].toDouble(),
-      productId: data['productId'],
-      price: data['price'].toDouble(),
+      cartId: data['cartId']?.toString() ?? '',
+      image: data['image']?.toString() ?? '',
+      name: data['name']?.toString() ?? '',
+      quantity: (data['quantity'] as num?)?.toInt() ?? 0,
+      cost: (data['cost'] as num?)?.toDouble() ?? 0.0,
+      productId: data['productId']?.toString() ?? '',
+      price: (data['price'] as num?)?.toDouble() ?? 0.0,
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'id': id,
+        'id': cartId,
         'productId': productId,
         'image': image,
         'name': name,

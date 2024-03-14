@@ -13,7 +13,7 @@ class CategoryModel {
     typeId = json['id'];
     typeName = json['typeName'];
     image = json['image'];
-    color = HexColor.fromHex(json['color'].toString());
+    // color = HexColor.fromHex(json['color'].toString());
   }
 
   Map<String, dynamic> toJson() {
@@ -21,7 +21,7 @@ class CategoryModel {
     data['id'] = typeId;
     data['typeName'] = typeName;
     data['image'] = image;
-    data['color'] = color?.toHex();
+    // data['color'] = color?.toHex();
     return data;
   }
 }

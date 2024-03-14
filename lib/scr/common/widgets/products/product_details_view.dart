@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
 import 'package:mtb_halal/scr/models/product.dart';
+import 'package:mtb_halal/scr/screens/cart/controllers/cart_controller.dart';
 import 'package:mtb_halal/scr/screens/cart/widgets/items_add_remove_to_cart.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -66,7 +67,7 @@ class ProductDetails extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          product.name,
+                          product.name ?? "",
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ),
@@ -85,7 +86,7 @@ class ProductDetails extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "\$${product.price.toStringAsFixed(2)} \$",
+                        "\$${product.price!.toStringAsFixed(2)} \$",
                         style: const TextStyle(
                             color: BColors.secondary,
                             fontSize: 24,
@@ -93,6 +94,7 @@ class ProductDetails extends StatelessWidget {
                       ),
                       const Spacer(),
                       ItemsAddRemoveToCart(
+                        quantity: product.quantity.toString(),
                         didQtyAdd: () {},
                         didQtySub: () {},
                       )
@@ -144,11 +146,9 @@ class ProductDetails extends StatelessWidget {
                   ],
                 ),
                 onPressed: () {
-                  // CartViewModel.serviceCallAddToCart(
-                  //     pObj.prodId ?? 0, detailVM.qty.value, () {
-                  //   Navigator.pop(context);
-                  // }
-                  // );
+                  CartController.addToCart(3.0, product.productId ?? '', () {
+                    Navigator.pop(context);
+                  });
                 },
               ),
             )

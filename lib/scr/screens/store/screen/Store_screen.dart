@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mtb_halal/scr/common/widgets/appbar/tabbar.dart';
 import 'package:mtb_halal/scr/common/widgets/container/search_container.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
+import 'package:mtb_halal/scr/screens/home/controllers/home_controller.dart';
 
 import '../widgets/all_products.dart';
 import '../widgets/filter.dart';
@@ -13,10 +14,12 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DefaultTabController(
+    var product = HomeController.instance.lastProductArr;
+
+    return DefaultTabController(
         length: 4,
         child: Scaffold(
-            appBar: BAppbar(
+            appBar: const BAppbar(
               appBarSpacing: true,
               bottom: BTabBar(tabs: [
                 TabWidget(
@@ -41,12 +44,16 @@ class StoreScreen extends StatelessWidget {
               ),
             ),
             body: Padding(
-              padding: EdgeInsets.all(BSizes.md),
+              padding: const EdgeInsets.all(BSizes.md),
               child: TabBarView(children: [
-                AllProductsScreen(),
-                FilterView(),
-                FilterView(),
-                AllProductsScreen(),
+                AllProductsScreen(
+                  product: product,
+                ),
+                const FilterView(),
+                const FilterView(),
+                AllProductsScreen(
+                  product: product,
+                ),
               ]),
             )));
   }

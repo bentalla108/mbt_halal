@@ -8,12 +8,14 @@ class MockProductModel extends ProductModel {
   MockProductModel(
       {String id = "mock_id",
       String image = 'assets/images/img/2.png',
+      String productId = 'productId',
       String name = "mock_name",
       String brand = "mock_brand",
       double price = 0.0,
       String description = "mock_description"})
       : super(
             id: id,
+            productId: productId,
             image: image,
             name: name,
             brand: brand,
@@ -22,6 +24,7 @@ class MockProductModel extends ProductModel {
 
   factory MockProductModel.random() {
     return MockProductModel(
+      productId: 'productId',
       id: "mock_id_${_random.nextInt(100)}",
       image:
           'assets/images/img/${_random.nextInt(3)}.png', // Utilisation d'une image aléatoire

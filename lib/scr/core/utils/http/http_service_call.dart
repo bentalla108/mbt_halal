@@ -32,9 +32,24 @@ class HttpServiceCall {
         failure);
   }
 
+  static void patch(String endpoint, dynamic data,
+      {ResSuccess? withSuccess, ResFailure? failure}) {
+    _sendRequest(
+        http.patch(Uri.parse(endpoint),
+            headers: {'Content-Type': 'application/json'},
+            body: json.encode(data)),
+        withSuccess,
+        failure);
+  }
+
   static void delete(String endpoint,
       {ResSuccess? withSuccess, ResFailure? failure}) {
-    _sendRequest(http.delete(Uri.parse(endpoint)), withSuccess, failure);
+    _sendRequest(
+        http.delete(Uri.parse(
+          endpoint,
+        )),
+        withSuccess,
+        failure);
   }
 
   static void _sendRequest(Future<http.Response> futureResponse,

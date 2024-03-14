@@ -65,7 +65,7 @@ class ProductCellGridLayout extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(height: 3.v),
-                      Text(product[index].name,
+                      Text(product[index].name ?? "",
                           style: Theme.of(context).textTheme.bodyLarge),
                       const SizedBox(
                         height: 2,
@@ -82,7 +82,7 @@ class ProductCellGridLayout extends StatelessWidget {
 
                       Text(
                         // "\$${pObj.offerPrice ?? pObj.price}",
-                        '${product[index].price.toStringAsFixed(2)} \$',
+                        '${product[index].price!.toStringAsFixed(2)} \$',
 
                         style: const TextStyle(
                             color: BColors.secondary,

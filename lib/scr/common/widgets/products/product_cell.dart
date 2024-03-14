@@ -1,27 +1,24 @@
-// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mtb_halal/scr/common/widgets/products/product_details_view.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
 import 'package:mtb_halal/scr/models/product.dart';
+import 'package:mtb_halal/scr/screens/cart/controllers/cart_controller.dart';
 
 class ProductCell extends StatelessWidget {
   // final OfferProductModel pObj;
 
   final List<ProductModel> product;
-  final VoidCallback onPressed;
-  final VoidCallback onCart;
   final double margin;
   final double weight;
 
-  const ProductCell(
-      {super.key,
-      required this.product,
-      // required this.pObj,
-      required this.onPressed,
-      this.weight = 150,
-      this.margin = 8,
-      required this.onCart});
+  const ProductCell({
+    super.key,
+    required this.product,
+    // required this.pObj,
+    this.weight = 150,
+    this.margin = 8,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -72,24 +69,14 @@ class ProductCell extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox(height: 3.v),
-                              Text(product[index].name,
+                              Text(product[index].name ?? '',
                                   style: Theme.of(context).textTheme.bodyLarge),
                               const SizedBox(
                                 height: 2,
                               ),
-                              // const Text(
-                              //   // "${pObj.unitValue}${pObj.unitName}",
-                              //   "12 Items",
-
-                              //   style: TextStyle(
-                              //       color: BColors.secondary,
-                              //       fontSize: 14,
-                              //       fontWeight: FontWeight.w500),
-                              // ),
-
                               Text(
                                 // "\$${pObj.offerPrice ?? pObj.price}",
-                                '${product[index].price.toStringAsFixed(2)} \$',
+                                '${product[index].price!.toStringAsFixed(2)} \$',
 
                                 style: const TextStyle(
                                     color: BColors.secondary,
@@ -104,7 +91,10 @@ class ProductCell extends StatelessWidget {
                           child: Transform.translate(
                             offset: const Offset(5, 5),
                             child: InkWell(
-                              onTap: onCart,
+                              onTap: () {
+                                CartController.addToCart(
+                                    3.0, product[index].productId ?? '', () {});
+                              },
                               child: Container(
                                 width: 40,
                                 height: 40,

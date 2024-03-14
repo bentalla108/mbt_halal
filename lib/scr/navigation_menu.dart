@@ -18,52 +18,49 @@ class NavigationMenu extends StatelessWidget {
     final controller = Get.put(NavigationController());
     return Obx(
       () => Scaffold(
-        // extendBody: true,
-        bottomNavigationBar: Container(
-          height: 75,
-          decoration: BoxDecoration(boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.4),
-              blurRadius: 25,
-              offset: const Offset(8, -2),
-            )
-          ]),
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(18), topRight: Radius.circular(18)),
-            child: BottomNavigationBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              selectedItemColor: BColors.primary,
-              selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-              showUnselectedLabels: true,
-              unselectedLabelStyle:
-                  const TextStyle(fontWeight: FontWeight.normal),
-              unselectedItemColor: Colors.black,
-              currentIndex: controller.selectedIndex.value,
-              onTap: (index) => controller.selectedIndex.value = index,
-              items: const [
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.home_outlined,
-                      size: 38,
-                    ),
-                    label: 'Home'),
-                BottomNavigationBarItem(
-                    icon: Icon(Iconsax.shop), label: 'Store'),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.shopping_cart_outlined), label: 'Cart'),
-                BottomNavigationBarItem(
-                    icon: Icon(Iconsax.user), label: 'Profile')
-              ],
+          // extendBody: true,
+          bottomNavigationBar: Container(
+            height: 75,
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.4),
+                blurRadius: 25,
+                offset: const Offset(8, -2),
+              )
+            ]),
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(18), topRight: Radius.circular(18)),
+              child: BottomNavigationBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                selectedItemColor: BColors.primary,
+                selectedLabelStyle:
+                    const TextStyle(fontWeight: FontWeight.bold),
+                showUnselectedLabels: true,
+                unselectedLabelStyle:
+                    const TextStyle(fontWeight: FontWeight.normal),
+                unselectedItemColor: Colors.black,
+                currentIndex: controller.selectedIndex.value,
+                onTap: (index) => controller.selectedIndex.value = index,
+                items: const [
+                  BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.home_outlined,
+                        size: 38,
+                      ),
+                      label: 'Home'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Iconsax.shop), label: 'Store'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.shopping_cart_outlined), label: 'Cart'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Iconsax.user), label: 'Profile')
+                ],
+              ),
             ),
           ),
-        ),
-        body: IndexedStack(
-          index: controller.selectedIndex.value,
-          children: controller.screens,
-        ),
-      ),
+          body: controller.screens[controller.selectedIndex.value]),
     );
   }
 }

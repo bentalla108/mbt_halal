@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeController = Get.put(HomeController());
+    final HomeController homeController = Get.put(HomeController());
     var product = homeController.lastProductArr;
     List img = [
       'assets/images/img/3.png',
@@ -97,8 +97,6 @@ class HomeScreen extends StatelessWidget {
                   // ),
                   ProductCell(
                     product: product,
-                    onPressed: () {},
-                    onCart: () {},
                   ),
                   SizedBox(
                     height: BSizes.spaceBtwSections,
@@ -111,8 +109,6 @@ class HomeScreen extends StatelessWidget {
                   // ),
                   ProductCell(
                     product: product,
-                    onPressed: () {},
-                    onCart: () {},
                   ),
                   SizedBox(
                     height: BSizes.spaceBtwSections,

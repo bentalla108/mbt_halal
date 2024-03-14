@@ -18,7 +18,6 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
 
     if (kDebugMode) {
@@ -41,9 +40,6 @@ class HomeController extends GetxController {
       }).toList();
 
       lastProductArr.value = lastProductDataArr;
-      if (kDebugMode) {
-        print('------------------Product------------------------ $payload\n ');
-      }
     }, failure: (err) async {
       BHelperFunctions.hideHUD();
       Get.snackbar(BTextsConstant.appName, err.toString());

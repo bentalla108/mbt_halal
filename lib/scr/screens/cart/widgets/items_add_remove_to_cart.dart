@@ -7,10 +7,13 @@ class ItemsAddRemoveToCart extends StatelessWidget {
   final VoidCallback didQtyAdd;
   final VoidCallback didQtySub;
 
+  final String quantity;
+
   const ItemsAddRemoveToCart({
     super.key,
     required this.didQtyAdd,
     required this.didQtySub,
+    required this.quantity,
   });
 
   @override
@@ -36,7 +39,7 @@ class ItemsAddRemoveToCart extends StatelessWidget {
             width: BSizes.spaceBtwItems,
           ),
           Text(
-            '2',
+            quantity,
             style: Theme.of(context).textTheme.titleSmall,
           ),
           const SizedBox(

@@ -19,7 +19,7 @@ class ProfileScreen extends StatelessWidget {
       appBar: BAppbar(
         title: const Text("Account seetings"),
         centerTitle: true,
-        showBackArrow: false,
+        showBackArrow: true,
         appBarSpacing: false,
         actions: [
           GestureDetector(
