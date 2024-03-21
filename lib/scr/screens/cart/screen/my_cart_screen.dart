@@ -147,40 +147,15 @@ class MyCartView extends StatelessWidget {
                                       minWidth: double.maxFinite,
                                       elevation: 0.1,
                                       color: BColors.secondary,
-                                      child: Stack(
+                                      child: const Stack(
                                         alignment: Alignment.centerRight,
                                         children: [
-                                          const Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                "Proceed checkout",
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              color: Colors.black12,
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                            padding: const EdgeInsets.symmetric(
-                                              vertical: 4,
-                                              horizontal: 8,
-                                            ),
-                                            child: Text(
-                                              "\$${cartController.cartTotalPrice.value}",
-                                              style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                          Text(
+                                            "Proceed checkout",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w600,
                                             ),
                                           ),
                                         ],

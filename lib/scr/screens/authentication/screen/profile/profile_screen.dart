@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mtb_halal/scr/common/widgets/appbar/appbar.dart';
 import 'package:mtb_halal/scr/core/utils/constants/sizes.dart';
 import 'package:mtb_halal/scr/screens/authentication/screen/profile/widgets/edit_profile.dart';
+import 'package:mtb_halal/scr/screens/authentication/screen/profile/widgets/payements_sections.dart';
 
 import '../../controllers/auth_controller.dart';
 import 'widgets/profile_menu.dart';
@@ -68,12 +69,12 @@ class ProfileScreen extends StatelessWidget {
             ProfileMenu(
               text: "Personal informations",
               icon: Icons.person,
-              press: () => Get.to(const EditProfile()),
+              press: () => Get.to(() => const EditProfile()),
             ),
             ProfileMenu(
               text: "Payments",
               icon: Icons.payment,
-              press: () {},
+              press: () => Get.to(() => const EditPayment()),
             ),
             ProfileMenu(
               text: "Notifications",

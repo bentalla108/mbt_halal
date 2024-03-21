@@ -28,6 +28,7 @@ dependencies:
   csc_picker: ^0.2.7
   image_picker: ^1.0.7
   country_pickers: ^2.0.0
+  nb_utils: ^4.6.22
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
 
@@ -19,7 +18,7 @@ class EditProfile extends StatefulWidget {
 class _EditProfileState extends State<EditProfile> {
   final _formKey = GlobalKey<FormState>();
 
-  String dropdownValue = 'Male';
+  String dropdownValue = '';
 
   DateTime? selectedDate;
   final EditProfileController controller = Get.put(EditProfileController());
@@ -38,6 +37,7 @@ class _EditProfileState extends State<EditProfile> {
       },
       child: Scaffold(
         appBar: const BAppbar(
+          centerTitle: true,
           showBackArrow: true,
           title: Text('Edit Information'),
         ),
@@ -89,9 +89,17 @@ class _EditProfileState extends State<EditProfile> {
                     height: BSizes.spaceBtwItems,
                   ),
                   CustomTextField(
+                    controller: controller.usernameController.value,
+                    labelText: BTextsConstant.lastName,
+                    prefixIconName: Iconsax.user,
+                  ),
+                  const SizedBox(
+                    height: BSizes.spaceBtwItems,
+                  ),
+                  CustomTextField(
                     controller: controller.emailController.value,
                     labelText: BTextsConstant.email,
-                    prefixIconName: Iconsax.direct,
+                    prefixIconName: Icons.mail_outline_outlined,
                   ),
                   const SizedBox(
                     height: BSizes.spaceBtwItems,
@@ -135,6 +143,18 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                   ),
                   const SizedBox(height: 8),
+                  SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'Save',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          )))
                 ],
               ),
             ),
