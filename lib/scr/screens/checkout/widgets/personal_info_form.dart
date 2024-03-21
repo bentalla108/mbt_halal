@@ -8,7 +8,7 @@ class SocialInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Form(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      // SocialTitle(),
+      SocialTitle(),
       SizedBox(
         height: BSizes.spaceBtwItems,
       ),

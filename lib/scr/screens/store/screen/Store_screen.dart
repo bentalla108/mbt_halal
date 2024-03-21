@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mtb_halal/scr/common/widgets/appbar/tabbar.dart';
 import 'package:mtb_halal/scr/common/widgets/container/search_container.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
-import 'package:mtb_halal/scr/screens/home/controllers/home_controller.dart';
+import 'package:mtb_halal/scr/screens/store/controllers/store_controller.dart';
 
 import '../widgets/all_products.dart';
 import '../widgets/filter.dart';
@@ -14,7 +15,9 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var product = HomeController.instance.lastProductArr;
+    Get.lazyPut(() => StoreController());
+    var allProducts = StoreController.instance.allProduct;
+    var productByPrice = StoreController.instance.listProductByPrice;
 
     return DefaultTabController(
         length: 4,
@@ -47,13 +50,13 @@ class StoreScreen extends StatelessWidget {
               padding: const EdgeInsets.all(BSizes.md),
               child: TabBarView(children: [
                 AllProductsScreen(
-                  product: product,
+                  product: allProducts,
                 ),
                 const FilterView(),
                 const FilterView(),
                 AllProductsScreen(
-                  product: product,
-                ),
+                  product: productByPrice,
+                )
               ]),
             )));
   }

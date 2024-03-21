@@ -10,6 +10,7 @@ class SVKey {
   static const svProductDetail = '${baseUrl}product_detail';
   static const svProductLatest = '${baseUrl}product/latest_products';
   static const svProductsCategory = '${baseUrl}product/products_category';
+  static const svProductsAll = '${baseUrl}product/all_products';
 
   ///////////////////
   static const svAddRemoveFavorite = '${baseUrl}add_remove_favorite';

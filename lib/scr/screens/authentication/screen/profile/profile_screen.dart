@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mtb_halal/scr/common/widgets/appbar/appbar.dart';
 import 'package:mtb_halal/scr/core/utils/constants/sizes.dart';
+import 'package:mtb_halal/scr/screens/authentication/screen/profile/widgets/edit_profile.dart';
 
 import '../../controllers/auth_controller.dart';
 import 'widgets/profile_menu.dart';
@@ -37,7 +38,6 @@ class ProfileScreen extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -68,7 +68,7 @@ class ProfileScreen extends StatelessWidget {
             ProfileMenu(
               text: "Personal informations",
               icon: Icons.person,
-              press: () => {},
+              press: () => Get.to(const EditProfile()),
             ),
             ProfileMenu(
               text: "Payments",

@@ -61,18 +61,18 @@ class CartController extends GetxController {
   }
 
   void updateCart(CartItemModel cObj, double newQuantity) {
-    BHelperFunctions.showHUD();
+    // BHelperFunctions.showHUD();
     HttpServiceCall.patch(SVKey.svUpdateCart, {
       "cartId": cObj.cartId,
       "quantity": newQuantity,
       "productId": cObj.productId
     }, withSuccess: (resObj) async {
-      BHelperFunctions.hideHUD();
+      // BHelperFunctions.hideHUD();
 
       // Get.snackbar(BTextsConstant.appName, resObj[KKey.message].toString());
       apiCall();
     }, failure: (err) async {
-      BHelperFunctions.hideHUD();
+      // BHelperFunctions.hideHUD();
       Get.snackbar(BTextsConstant.appName, err.toString());
     });
   }

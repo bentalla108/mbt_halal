@@ -9,6 +9,7 @@ import 'scr/core/utils/helpers/logger.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  configLoading();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]).then((value) {
@@ -19,7 +20,7 @@ void main() {
 
 void configLoading() {
   EasyLoading.instance
-    ..indicatorType = EasyLoadingIndicatorType.ring
+    ..indicatorType = EasyLoadingIndicatorType.foldingCube
     ..loadingStyle = EasyLoadingStyle.custom
     ..indicatorSize = 45.0
     ..radius = 5.0

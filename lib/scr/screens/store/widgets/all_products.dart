@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:mtb_halal/scr/common/widgets/products/product_cell_card.dart';
 import 'package:mtb_halal/scr/core/app_export.dart';
-import 'package:mtb_halal/scr/screens/home/controllers/home_controller.dart';
 
 import '../../../common/widgets/grid_layout.dart';
 import '../../../models/product.dart';

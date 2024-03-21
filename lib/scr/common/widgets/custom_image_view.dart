@@ -149,6 +149,8 @@ extension ImageTypeExtension on String {
       return ImageType.svg;
     } else if (startsWith('file://')) {
       return ImageType.file;
+    } else if (startsWith('C:\\Users')) {
+      return ImageType.file;
     } else {
       return ImageType.png;
     }

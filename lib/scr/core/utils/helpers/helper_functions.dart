@@ -42,7 +42,7 @@ class BHelperFunctions {
     }
   }
 
-  static void showHUD({String status = "loading ....."}) async {
+  static void showHUD({String status = ""}) async {
     await Future.delayed(const Duration(milliseconds: 1));
     EasyLoading.show(status: status);
   }

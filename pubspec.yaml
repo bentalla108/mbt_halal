@@ -26,6 +26,8 @@ dependencies:
   connectivity_plus: ^2.3.8
   http: ^1.2.0
   csc_picker: ^0.2.7
+  image_picker: ^1.0.7
+  country_pickers: ^2.0.0
 
 dev_dependencies:
   flutter_test:

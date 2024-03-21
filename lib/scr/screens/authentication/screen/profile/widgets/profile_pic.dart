@@ -1,5 +1,10 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import 'package:mtb_halal/scr/core/app_export.dart';
+
+import 'edit_profile.dart';
 
 class ProfilePic extends StatelessWidget {
   const ProfilePic({
@@ -44,7 +49,7 @@ class ProfilePic extends StatelessWidget {
                     ),
                     backgroundColor: Colors.grey.withOpacity(0.7),
                   ),
-                  onPressed: () {},
+                  onPressed: () => Get.to(const EditProfile()),
                   child: const Icon(size: 25, Icons.edit),
                 ),
               ),

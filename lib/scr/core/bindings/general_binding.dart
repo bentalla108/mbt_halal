@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:mtb_halal/scr/screens/authentication/controllers/auth_controller.dart';
-import 'package:mtb_halal/scr/screens/cart/controllers/cart_controller.dart';
 import 'package:mtb_halal/scr/screens/home/controllers/home_controller.dart';
 
 import '../utils/preferences/pref_utils.dart';
@@ -10,9 +9,7 @@ class GeneralBindings extends Bindings {
   void dependencies() {
     // Bind your controllers or other dependencies here
     Get.put(HomeController());
-    Get.put(
-      CartController(),
-    );
+
     Get.put(AuthNavigationController());
     Get.put(PrefUtils());
 

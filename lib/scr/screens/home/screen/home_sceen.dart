@@ -16,18 +16,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final HomeController homeController = Get.put(HomeController());
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => homeController.apiCall());
+
     var product = homeController.lastProductArr;
     List img = [
       'assets/images/img/3.png',
       'assets/images/img/2.png',
       'assets/images/img/1.png',
     ];
-
-    // List names = [
-    //   'Sandwich',
-    //   'Sausages Bun',
-    //   'Family Pack',
-    // ];
 
     String details =
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt';
@@ -61,63 +58,63 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      // scrollDirection: Axis.horizontal,
-
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(BSizes.md),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              BannerSection(img: img, details: details),
-              Column(
+      body: GetBuilder<HomeController>(
+        init: HomeController(),
+        dispose: (_) => Get.delete<HomeController>(),
+        builder: (homeController) {
+          return SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(BSizes.md),
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(
-                    height: BSizes.spaceBtwSections,
-                  ),
-                  SectionHeading(
-                    title: 'Categorie',
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
+                  BannerSection(img: img, details: details),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        height: BSizes.spaceBtwSections,
+                      ),
+                      SectionHeading(
+                        title: 'Categorie',
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
 
-                  // Categorie sections
-                  CategoryHomeWidgets(),
-                  SizedBox(
-                    height: BSizes.spaceBtwSections,
-                  ),
+                      //! Categorie sections
+                      CategoryHomeWidgets(),
+                      SizedBox(
+                        height: BSizes.spaceBtwSections,
+                      ),
 
-                  SectionHeading(
-                    title: 'Best hightlight',
-                  ),
-                  // SizedBox(
-                  //   height: BSizes.spaceBtwItems,
-                  // ),
-                  ProductCell(
-                    product: product,
-                  ),
-                  SizedBox(
-                    height: BSizes.spaceBtwSections,
-                  ),
-                  SectionHeading(
-                    title: 'See our Latest products',
-                  ),
-                  // SizedBox(
-                  //   height: BSizes.spaceBtwItems,
-                  // ),
-                  ProductCell(
-                    product: product,
-                  ),
-                  SizedBox(
-                    height: BSizes.spaceBtwSections,
+                      SectionHeading(
+                        title: 'Best hightlight',
+                      ),
+
+                      ProductCell(
+                        product: product,
+                      ),
+                      SizedBox(
+                        height: BSizes.spaceBtwSections,
+                      ),
+                      SectionHeading(
+                        title: 'See our Latest products',
+                      ),
+
+                      ProductCell(
+                        product: product,
+                      ),
+                      SizedBox(
+                        height: BSizes.spaceBtwSections,
+                      )
+                    ],
                   )
                 ],
-              )
-            ],
-          ),
-        ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }

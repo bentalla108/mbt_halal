@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
+    this.textInputType,
     super.key,
     this.suffixIconName,
     this.prefixIconName,
@@ -12,8 +13,9 @@ class CustomTextField extends StatelessWidget {
     this.validator,
   });
 
+  final TextInputType? textInputType;
   final Widget? suffixIconName;
-  final IconData? prefixIconName;
+  final dynamic prefixIconName;
   final String labelText;
   final String? hintText;
   final bool obscureText;
@@ -22,6 +24,21 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
+    Widget? prefixIconWidget;
+
+    if (prefixIconName != null) {
+      if (prefixIconName is IconData) {
+        // If prefixIconName is an IconData, create an Icon widget
+        prefixIconWidget = Icon(prefixIconName);
+      } else if (prefixIconName is Widget) {
+        // If prefixIconName is already a widget, assign it directly
+        prefixIconWidget = prefixIconName;
+      } else {
+        // Handle other cases if necessary
+        // For example, throw an error or assign a default widget
+        prefixIconWidget = const Icon(Icons.error); // Assigning a default icon
+      }
+    }
     return TextFormField(
       controller: controller,
       validator: validator,
@@ -30,7 +47,7 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         suffixIcon: suffixIconName,
-        prefixIcon: prefixIconName != null ? Icon(prefixIconName) : null,
+        prefixIcon: prefixIconWidget,
         labelText: labelText,
       ),
     );
